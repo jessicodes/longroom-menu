@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" media="screen" href="resources/css/layout.css" type="text/css" />
+</head>
+<body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Long Room</a>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Current Menu <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Past Menus</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">+ Add Beer</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main id="Main">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8">
+
+        <h1>Beer Menu</h1>
+
+        <div class="form-group">
+          <label for="searchBeer">Search a beer</label>
+          <input v-model="search" type="email" class="form-control" id="searchBeer" />
+        </div>
+
+        <p>Displaying {{ filteredBeers.length }} beers, filtered by <strong>{{ search }}</strong></p>
+
+        <div class="panel-heading"><i v-show="loading">...Loading beers...</i></div>
+        <div v-for="beer in filteredBeers" class="beerCard">
+          <div class="row"> <!--align-items-center-->
+            <div class="col-10">
+              <h4>{{ beer.brewery }}</h4>
+              <h6>{{ beer.name }}</h6>
+            </div>
+            <div class="col-2">
+              <a class="addBeer" v-on:click="addBeer(beer)"><i class="fa fa-plus-square-o"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-12 col-md-4">
+
+        <div class="activeMenu-wrapper">
+          <h3>Today's Menu</h3>
+          <div class="activeMenu">
+            <draggable :list="list" class="dragArea">
+              <div v-for="(beer, index) in activeBeers" class="activeMenu-item">
+                <p>{{ beer.brewery }} <strong>{{ beer.name }}</strong>
+                  <a class="removeBeer" v-on:click="removeBeer(index)"><i class="fa fa-minus"></i></a>
+                </p>
+              </div>
+            </draggable>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+  <!-- Front End -->
+  <script src="https://use.fontawesome.com/0828c6b60a.js"></script>
+  <script src="resources/js/bootstrap.min.js"></script>
+
+  <!-- JQuery and Vue Scripts -->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.5.3/vue-router.js"></script>-->
+
+  <!-- Axios :: XMLHttpRequests -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.js"></script>
+
+  <!-- CDNJS :: Sortable (https://cdnjs.com/) -->
+  <script src="//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
+
+  <!-- CDNJS :: Vue.Draggable (https://cdnjs.com/) -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js"></script>
+
+  <!-- Custom Scripts -->
+  <script src="resources/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+.navbar {
+    margin-bottom: 30px;
+}
+
+/* each beer */
+.beerCard {
+    border: 1px #3d3d3d solid;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 0 0 10px;
+}
+
+.beerCard h6 {
+    margin: 0;
+}
+
+/* add beer icon */
+.addBeer {
+    font-size: 40px;
+    font-style: normal;
+    float: right;
+    line-height: 1;
+}

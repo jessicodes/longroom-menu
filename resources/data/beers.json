@@ -1,0 +1,56 @@
+[
+  {
+    "name": "25 Blonde De L'Enfer",
+    "brewery": "Unibroue",
+    "location": "Chambly, Quebec",
+    "type": "Strong Ale",
+    "glass_type": "Custom",
+    "abv": "10.5",
+    "description": "Happy 25th Anniversary Unibroue, you slinger of belgian style brews! Fitter to brew this demon from below in celebration. Big estery nose and fruity yeast. The \"blonde from hell\" will sneak up on you. A tricky temptress."
+  },
+  {
+    "name": "Ambergeddon",
+    "brewery": "Ale Asylum",
+    "location": "Madison, WI",
+    "type": "Amber Ale",
+    "glass_type": "Pint",
+    "abv": "8.9",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+  },
+  {
+    "name": "Third Coast 2014",
+    "brewery": "Bell's",
+    "location": "Kalamazoo, MI",
+    "type": "Barleywine",
+    "glass_type": "Goblet",
+    "abv": "10.2",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+  },
+  {
+    "name": "Third Coast 2017",
+    "brewery": "Bell's",
+    "location": "Kalamazoo, MI",
+    "type": "Barleywine",
+    "glass_type": "Goblet",
+    "abv": "10.2",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+  },
+  {
+    "name": "Coolship Sour Mango",
+    "brewery": "Elgood's",
+    "location": "Wisbech, England",
+    "type": "Wild Ale",
+    "glass_type": "Goblet",
+    "abv": "6.7",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+  },
+  {
+    "name": "Porter",
+    "brewery": "Anchor",
+    "location": "San Francisco, CA",
+    "type": "Amber Ale",
+    "glass_type": "Pint",
+    "abv": "5.6",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+  }
+]

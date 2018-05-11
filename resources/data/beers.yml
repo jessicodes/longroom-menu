@@ -1,0 +1,40 @@
+items:
+    - name: Anchor Porter
+      brewery: Anchor Brewery
+      type: Porter
+      glass: Tulip
+      abv: 5.7
+      price: 9.00
+      description: I am a porter.
+
+    - name: Corona
+      brewery: Corona
+      type: Mexican Lager
+      glass: Pint
+      abv: 4.5
+      price: 4.00
+      description: You should add lime to me.
+
+    - name: Tecate
+      brewery: Tecate
+      type: Mexican Lager
+      glass: Pint
+      abv: 4.3
+      price: 3.00
+      description: You should also add lime to me. I do not have an n in my name either.
+
+    - name: Daisy Cutter
+      brewery: Half Acre
+      type: Pale Ale
+      glass: Pint
+      abv: 5.3
+      price: 7.00
+      description: Today, Daisy Cutter is a call brand that we continue to keep raw and relevant. Blended pine, citrus, papaya and mango. Dank. Apparent biscuit, lingering, obscenely dry.
+
+    - name: Canadian Breakfast Stout
+      brewery: Founders
+      type: American Double / Imperial Stout
+      glass: Tulip
+      abv: 10.6
+      price: 11.00
+      description: Canadian Breakfast Stout (CBS) is the epitome of why we launched the Backstage Series: to bring some of our most sought-after beers, which have been available primarily at the taproom or at a few select events, to a much larger audience.
