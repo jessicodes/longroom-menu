@@ -39,3 +39,11 @@
 [Wed Mar 14 01:28:58.278803 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.3:443:0 server certificate does NOT include an ID which matches the server name
 [Wed Mar 14 01:28:58.470383 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.3:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
 [Wed Mar 14 01:28:58.471266 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.3:443:0 server certificate does NOT include an ID which matches the server name
+[Mon May 14 22:40:21.859914 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.2:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 14 22:40:21.872399 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.2:443:0 server certificate does NOT include an ID which matches the server name
+[Mon May 14 22:40:22.937584 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.2:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 14 22:40:22.938876 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.2:443:0 server certificate does NOT include an ID which matches the server name
+[Mon May 14 22:42:12.049324 2018] [php7:error] [pid 24] [client 172.30.0.1:56202] script '/var/www/html/index.php' not found or unable to stat
+[Mon May 14 22:42:17.772244 2018] [php7:error] [pid 22] [client 172.30.0.1:56212] script '/var/www/html/index.php' not found or unable to stat
+[Mon May 14 22:42:19.966982 2018] [php7:error] [pid 22] [client 172.30.0.1:56212] script '/var/www/html/index.php' not found or unable to stat
+[Mon May 14 22:42:25.807257 2018] [php7:error] [pid 15] [client 172.30.0.1:56214] script '/var/www/html/index.php' not found or unable to stat

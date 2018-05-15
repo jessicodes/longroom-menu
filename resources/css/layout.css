@@ -1,6 +1,9 @@
 .navbar {
     margin-bottom: 30px;
 }
+.navbar .nav-link.router-link-exact-active {
+    color: #fff;
+}
 
 /* each beer */
 .beerCard {

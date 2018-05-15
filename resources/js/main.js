@@ -21,31 +21,17 @@
 //     }
 // });
 
-//var API = 'https://openwhisk.ng.bluemix.net/api/v1/web/rcamden%40us.ibm.com_My%20Space/default/nameSearch.json?search=';
-
-
-// OLD WORKING METHOD
-// searchBeers:function() {
-//   if(this.search.length < 3) return;
-//   fetch(API + encodeURIComponent(this.search))
-//     .then(res => res.json())
-//   .then(res => {
-//     console.log(res);
-//   this.filteredBeers = res.names;
-// });
-
-
 // Base Url of the API
-const beerListJson = "resources/data/beers.json";
+const beerListJson = "/resources/data/beers.json";
 
-var app = new Vue({
-  el: '#Main',
-  data: {
+const BuildMenu = {
+  template: '#build-menu',
+  data: () => ({
     search: '',
     beers: [],
     activeBeers: [],
     loading: false
-  },
+  }),
   mounted() {
     this.getBeers();
   },
@@ -54,10 +40,10 @@ var app = new Vue({
       this.loading = true;
       axios.get(beerListJson).then(response => {
         this.beers = response.data
-        this.loading = false;
-      }).catch(error => {
+      this.loading = false;
+    }).catch(error => {
         console.log(error);
-      });
+    });
     },
     addBeer(beer) {
       this.activeBeers.push(beer);
@@ -69,9 +55,74 @@ var app = new Vue({
   computed: {
     filteredBeers() {
       return this.beers.filter(beer => {
-        var beerTitle =  beer.brewery + ' ' + beer.name + ' ' + beer.brewery;
-        return beerTitle.toLowerCase().includes(this.search.toLowerCase());
-      })
+          var beerTitle =  beer.brewery + ' ' + beer.name + ' ' + beer.brewery;
+      return beerTitle.toLowerCase().includes(this.search.toLowerCase());
+    })
     }
   }
+};
+
+// Post component
+const AddBeer = {
+  template: '#add-beer',
+  data: () => ({
+    name: '',
+    brewery: '',
+    style: '',
+    glassware: '',
+    abv: '',
+    description: '',
+    attemptSubmit: false,
+    postStatus: false
+  }),
+  computed: {
+    missingName: function () { return this.name === ''; },
+    missingDescription: function () { return this.description === ''; }
+  },
+  methods: {
+    validateForm: function (event) {
+      this.attemptSubmit = true;
+      if (this.missingName || this.missingDescription) {
+        event.preventDefault();
+      } else {
+        this.onSubmit();
+      }
+    },
+    onSubmit () {
+      axios.post('post.php', {
+        'name': this.name,
+        'description': this.description
+      }).then(response => {
+        if (response.data.error) {
+          console.log('error', response.data.error)
+        } else {
+          this.postStatus = true
+          console.log('success', response.data.message)
+        }
+      }).catch(error => {
+        console.log(error.response)
+      });
+    }
+  },
+};
+
+// Create vue router
+var router = new VueRouter({
+  mode: 'history',
+  routes: [
+    {
+      name: 'BuildMenu',
+      path: '/',
+      component: BuildMenu
+    },
+    {
+      name: 'AddBeer',
+      path: '/add-beer',
+      component: AddBeer
+    }
+  ]
 });
+
+// Create vue instance and mount onto #app
+var vue = new Vue({router});
+var app = vue.$mount('#app');
