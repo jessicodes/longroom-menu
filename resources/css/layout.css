@@ -5,6 +5,10 @@
     color: #fff;
 }
 
+h1 {
+    margin: 0 0 2rem;
+}
+
 /* each beer */
 .beerCard {
     border: 1px #3d3d3d solid;

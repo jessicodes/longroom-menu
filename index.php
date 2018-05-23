@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <?php
+    // connect to db via notorm/pdo
+    include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
+  ?>
   <meta charset="UTF-8">
   <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" media="screen" href="/resources/css/layout.css" type="text/css" />
@@ -22,10 +26,10 @@
           <router-link class="nav-link" :to="{ name: 'BuildMenu' }">Current Menu</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Past Menus</a>
+          <router-link class="nav-link" :to="{ name: 'AddBeer' }">Add Beer</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" :to="{ name: 'AddBeer' }">+ Add Beer</router-link>
+          <router-link class="nav-link" :to="{ name: 'AddBrewery' }">Add Brewery</router-link>
         </li>
       </ul>
     </div>
@@ -47,29 +51,30 @@
         </div>
         <div class="form-group">
           <label for="brewery">Brewery</label><br />
-          <input type="text" class="form-control" name="brewery" id="brewery" v-model="brewery" />
+          <v-select :options="breweryOptions"></v-select>
+<!--          <input type="text" class="form-control" name="brewery" id="brewery" v-model="brewery" />-->
         </div>
         <div class="form-group">
           <label for="style">Beer Style</label><br />
-          <select class="form-control" name="style" id="style" v-model="style">
-            <option>- choose one -</option>
-            <option value="pale_ale">Pale Ale</option>
-            <option value="sour">Sour</option>
-            <option value="wheat">Wheat</option>
+          <select class="form-control" name="style" id="style" v-model="style" value="">
+            <option value="">- choose one -</option>
+            <option value="Pale Ale">Pale Ale</option>
+            <option value="Sour">Sour</option>
+            <option value="Wheat">Wheat</option>
           </select>
         </div>
         <div class="form-group">
           <label for="glassware">Glassware</label><br />
-          <select class="form-control" name="glassware" id="glassware" v-model="glassware">
-            <option>- choose one -</option>
-            <option value="custom">Custom</option>
-            <option value="goblet">Goblet</option>
-            <option value="pint">Pint</option>
+          <select class="form-control" name="glassware" id="glassware" v-model="glassware" value="">
+            <option value="">- choose one -</option>
+            <option value="Custom">Custom</option>
+            <option value="Goblet">Goblet</option>
+            <option value="Pint">Pint</option>
           </select>
         </div>
         <div class="form-group">
           <label for="abv">ABV</label><br />
-          <input type="number" class="form-control" name="abv" id="abv" v-model="abv" />
+          <input type="number" class="form-control" name="abv" id="abv" v-model="abv" min="0" step=".01" />
           <small  class="form-text text-muted">
             Do not include %
           </small>
@@ -83,7 +88,36 @@
       </form>
     </div>
     <div v-if="postStatus">
-      <h2>The form is submitted successfully.</h2>
+      <div class="alert alert-success" role="alert">The beer was successfully added.</div>
+      <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Beer</button>
+    </div>
+  </div>
+</template>
+
+<template id="add-brewery">
+  <div class="container">
+    <h1>Add Brewery</h1>
+    <div v-if="!postStatus">
+      <form id="form" method="post" v-on:submit.prevent="validateForm">
+        <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingName }">
+          <label for="name">Brewery Name</label>
+          <input type="text" class="form-control" name="name" id="name" v-model="name" />
+          <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingName">This field is required.</span>
+        </div>
+        <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingLocation }">
+          <label for="location">Brewery Location</label>
+          <input type="text" class="form-control" name="location" id="location" v-model="location" />
+          <small  class="form-text text-muted">
+            Ex. Chicago, IL
+          </small>
+          <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingLocation">This field is required.</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div v-if="postStatus">
+      <div class="alert alert-success" role="alert">The brewery was successfully added.</div>
+      <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Brewery</button>
     </div>
   </div>
 </template>
@@ -145,6 +179,9 @@
 <!-- Vue Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.5.3/vue-router.js"></script>
+
+<!-- Vue Select -->
+<script src="https://unpkg.com/vue-select@latest"></script>
 
 <!-- Axios :: XMLHttpRequests -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.js"></script>
