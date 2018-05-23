@@ -113,3 +113,27 @@
 [Wed May 23 01:04:15.240141 2018] [php7:emerg] [pid 22] [client 172.30.0.1:37706] PHP Parse error:  syntax error, unexpected ',' in /var/www/html/post_insert_brewery.php on line 8, referer: http://longroom.loc/add-brewery
 [Wed May 23 01:05:19.178189 2018] [php7:emerg] [pid 21] [client 172.30.0.1:37710] PHP Parse error:  syntax error, unexpected ',' in /var/www/html/post_insert_brewery.php on line 8, referer: http://longroom.loc/add-brewery
 [Wed May 23 01:07:07.579178 2018] [php7:notice] [pid 22] [client 172.30.0.1:37752] PHP Notice:  Undefined variable: brewery in /var/www/html/post_insert_beer.php on line 36, referer: http://longroom.loc/add-beer
+[Wed May 23 02:37:53.919838 2018] [php7:notice] [pid 20] [client 172.30.0.1:38516] PHP Notice:  Undefined variable: name in /var/www/html/get_menu.php on line 30
+[Wed May 23 02:38:23.442676 2018] [php7:emerg] [pid 22] [client 172.30.0.1:38520] PHP Parse error:  syntax error, unexpected ',' in /var/www/html/get_menu.php on line 22
+[Wed May 23 02:38:41.889706 2018] [php7:notice] [pid 20] [client 172.30.0.1:38522] PHP Notice:  Undefined variable: name in /var/www/html/get_menu.php on line 39
+[Wed May 23 02:39:08.927526 2018] [php7:notice] [pid 18] [client 172.30.0.1:38532] PHP Notice:  Undefined variable: name in /var/www/html/get_menu.php on line 39
+[Wed May 23 02:41:03.877590 2018] [php7:notice] [pid 15] [client 172.30.0.1:38542] PHP Notice:  Undefined variable: name in /var/www/html/get_menu.php on line 37, referer: http://longroom.loc/
+[Wed May 23 02:41:47.222725 2018] [php7:notice] [pid 19] [client 172.30.0.1:38554] PHP Notice:  Undefined variable: name in /var/www/html/get_menu.php on line 37, referer: http://longroom.loc/
+[Wed May 23 02:42:08.374489 2018] [php7:notice] [pid 23] [client 172.30.0.1:38566] PHP Notice:  Undefined variable: name in /var/www/html/get_menu.php on line 37, referer: http://longroom.loc/
+[Wed May 23 02:42:20.413343 2018] [php7:notice] [pid 23] [client 172.30.0.1:38580] PHP Notice:  Undefined variable: name in /var/www/html/get_menu.php on line 37, referer: http://longroom.loc/
+[Wed May 23 02:42:35.167796 2018] [php7:notice] [pid 23] [client 172.30.0.1:38594] PHP Notice:  Undefined variable: name in /var/www/html/get_menu.php on line 37, referer: http://longroom.loc/
+[Wed May 23 02:58:57.942101 2018] [php7:notice] [pid 15] [client 172.30.0.1:38742] PHP Notice:  Undefined variable: beer_ids_arr in /var/www/html/get_menu.php on line 17
+[Wed May 23 02:58:57.944941 2018] [php7:warn] [pid 15] [client 172.30.0.1:38742] PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/get_menu.php on line 17
+[Wed May 23 03:16:15.420820 2018] [php7:notice] [pid 17] [client 172.30.0.1:38808] PHP Notice:  Undefined variable: id in /var/www/html/update_menu.php on line 43
+[Wed May 23 03:17:56.062924 2018] [php7:notice] [pid 15] [client 172.30.0.1:38830] PHP Notice:  Undefined variable: id in /var/www/html/update_menu.php on line 43, referer: http://longroom.loc/
+[Wed May 23 03:19:14.366774 2018] [php7:notice] [pid 20] [client 172.30.0.1:38842] PHP Notice:  Undefined variable: id in /var/www/html/update_menu.php on line 43, referer: http://longroom.loc/
+[Wed May 23 03:19:56.126576 2018] [php7:notice] [pid 17] [client 172.30.0.1:38860] PHP Notice:  Undefined index: name in /var/www/html/update_menu.php on line 13, referer: http://longroom.loc/
+[Wed May 23 03:19:56.129589 2018] [php7:notice] [pid 17] [client 172.30.0.1:38860] PHP Notice:  Undefined variable: id in /var/www/html/update_menu.php on line 43, referer: http://longroom.loc/
+[Wed May 23 03:20:14.405746 2018] [php7:notice] [pid 15] [client 172.30.0.1:38872] PHP Notice:  Undefined index: name in /var/www/html/update_menu.php on line 13, referer: http://longroom.loc/
+[Wed May 23 03:32:28.285265 2018] [php7:notice] [pid 23] [client 172.30.0.1:38994] PHP Notice:  Undefined variable: data in /var/www/html/update_menu.php on line 35, referer: http://longroom.loc/
+[Wed May 23 03:33:45.849153 2018] [php7:notice] [pid 15] [client 172.30.0.1:39006] PHP Notice:  Undefined variable: data in /var/www/html/update_menu.php on line 35, referer: http://longroom.loc/
+[Wed May 23 03:46:36.839805 2018] [php7:notice] [pid 18] [client 172.30.0.1:39160] PHP Notice:  Undefined variable: success in /var/www/html/update_menu.php on line 41, referer: http://longroom.loc/
+[Wed May 23 03:46:42.621012 2018] [php7:notice] [pid 18] [client 172.30.0.1:39160] PHP Notice:  Undefined variable: success in /var/www/html/update_menu.php on line 41, referer: http://longroom.loc/
+[Wed May 23 03:47:34.692148 2018] [php7:notice] [pid 23] [client 172.30.0.1:39178] PHP Notice:  Undefined variable: success in /var/www/html/update_menu.php on line 42, referer: http://longroom.loc/
+[Wed May 23 03:48:44.197722 2018] [php7:notice] [pid 22] [client 172.30.0.1:39194] PHP Notice:  Array to string conversion in /var/www/html/update_menu.php on line 37, referer: http://longroom.loc/
+[Wed May 23 03:48:49.926556 2018] [php7:notice] [pid 22] [client 172.30.0.1:39194] PHP Notice:  Array to string conversion in /var/www/html/update_menu.php on line 37, referer: http://longroom.loc/

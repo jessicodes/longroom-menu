@@ -5,6 +5,8 @@ header("Access-Control-Allow-Origin: *");
 
 // connect to db via notorm/pdo
 include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
+
+// passed data, if any
 $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON, TRUE);
 
@@ -25,7 +27,9 @@ $data = array(
   "style" => $style,
   "glassware" => $glassware,
   "abv" => $abv,
-  "description" => $description
+  "description" => $description,
+  "added" => new NotORM_Literal("NOW()"),
+  "updated" => new NotORM_Literal("NOW()")
 );
 $beers->insert($data);
 $id = $beers->insert_id();
@@ -33,7 +37,7 @@ $id = $beers->insert_id();
 $result['message'] = '';
 $result['error']  = false;
 
-if ($name){
+if ($id){
   $result['message']  = "Posted Values => ".$name."-".$description."-".$brewery;
   $result['error']  = false;
 }

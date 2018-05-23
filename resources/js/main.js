@@ -36,30 +36,58 @@ const BuildMenu = {
   }),
   mounted() {
     this.getBeers();
+    this.populateMenu();
   },
   methods: {
     getBeers() {
       this.loading = true;
       axios.get(beerListJson).then(response => {
         this.beers = response.data
-      this.loading = false;
-    }).catch(error => {
+        this.loading = false;
+      }).catch(error => {
         console.log(error);
-    });
+      });
+    },
+    populateMenu() {
+      axios.get('get_menu.php').then(response => {
+        if (response.data.error) {
+          console.log('error', response.data.error)
+        } else {
+          this.activeBeers = response.data.beers;
+          console.log('success', response.data.message)
+        }
+      }).catch(error => {
+        console.log(error.response)
+      });
     },
     addBeer(beer) {
       this.activeBeers.push(beer);
+      this.updateMenu();
     },
     removeBeer(index) {
       this.activeBeers.splice(index, 1);
+      this.updateMenu();
+    },
+    updateMenu() {
+      axios.post('update_menu.php', {
+        'activeBeers': this.activeBeers
+      }).then(response => {
+        if (response.data.error) {
+          console.log('error update menu', response.data.error)
+        } else {
+          console.log('success update menu', response.data.message)
+        }
+      }).catch(error => {
+        console.log(error.response)
+      });
     }
   },
   computed: {
     filteredBeers() {
       return this.beers.filter(beer => {
-          var beerTitle =  beer.brewery + ' ' + beer.name + ' ' + beer.brewery;
-      return beerTitle.toLowerCase().includes(this.search.toLowerCase());
-    })
+        var beerTitle =  beer.brewery + ' ' + beer.name + ' ' + beer.brewery;
+        return beerTitle.toLowerCase().includes(this.search.toLowerCase());
+      })
     }
   }
 };
