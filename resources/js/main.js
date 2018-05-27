@@ -39,6 +39,16 @@ const BuildMenu = {
     this.populateMenu();
   },
   methods: {
+    draggableMove: function(evt) {
+      console.log('move');
+      // console.log(evt.draggedContext.element.name);
+      // console.log(evt.draggedContext.index);
+      // console.log(evt.draggedContext.futureIndex);
+    },
+    draggableUpdateDrop: function(e){
+      console.log('drop');
+      this.updateMenu();
+    },
     getBeers() {
       this.loading = true;
       axios.get(beerListJson).then(response => {
@@ -96,6 +106,7 @@ const BuildMenu = {
 const AddBeer = {
   template: '#add-beer',
   data: () => ({
+    editableBeer: [],
     name: '',
     brewery: '',
     style: '',
@@ -108,12 +119,33 @@ const AddBeer = {
   }),
   mounted() {
     this.populateBreweries();
+    this.getEditableBeer();
   },
   computed: {
     missingName: function () { return this.name === ''; },
     missingDescription: function () { return this.description === ''; }
+    // currentBeer: function() {
+    //   var passedID = this.$route.params.id;
+    //   var filteredBeers = this.beers.filter(beer => {return beer.id == passedID});
+    //   return filteredBeers[0];
+    // }
   },
   methods: {
+    populateBreweries() {
+      axios.get(beerListJson).then(response => {
+        this.breweryOptions = ['hi', 'bye'];
+      }).catch(error => {
+        console.log(error);
+      });
+    },
+    getEditableBeer(){
+      var passedID = this.$route.params.id;
+      axios.get(beerListJson).then(response => {
+        this.editableBeer = response.data[0];
+      }).catch(error => {
+        console.log(error);
+      });
+    },
     validateForm: function (event) {
       this.attemptSubmit = true;
       if (this.missingName || this.missingDescription) {
@@ -121,13 +153,6 @@ const AddBeer = {
       } else {
         this.onSubmit();
       }
-    },
-    populateBreweries() {
-      axios.get(beerListJson).then(response => {
-        this.breweryOptions = ['hi', 'bye'];
-      }).catch(error => {
-        console.log(error);
-      });
     },
     onSubmit () {
       axios.post('insert_beer.php', {
@@ -219,6 +244,11 @@ var router = new VueRouter({
     {
       name: 'AddBeer',
       path: '/add-beer',
+      component: AddBeer
+    },
+    {
+      name: 'EditBeer',
+      path: '/edit-beer/:id',
       component: AddBeer
     },
     {

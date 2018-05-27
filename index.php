@@ -39,14 +39,18 @@
 
 </div>
 
+<!-- ADD A BEER -->
 <template id="add-beer">
   <div class="container">
-    <h1>Add a Beer</h1>
+
+    <h1 v-if="editableBeer.id">Edit Beer</h1>
+    <h1 v-else>Add a Beer</h1>
+
     <div v-if="!postStatus">
       <form id="form" method="post" v-on:submit.prevent="validateForm">
         <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingName }">
           <label for="name">Name</label>
-          <input type="text" class="form-control" name="name" id="name" v-model="name" />
+          <input type="text" class="form-control" name="name" id="name" v-model="editableBeer.name" />
           <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingName">This field is required.</span>
         </div>
         <div class="form-group">
@@ -93,7 +97,9 @@
     </div>
   </div>
 </template>
+<!-- ADD ADD A BEER -->
 
+<!-- ADD BREWERY -->
 <template id="add-brewery">
   <div class="container">
     <h1>Add Brewery</h1>
@@ -121,7 +127,9 @@
     </div>
   </div>
 </template>
+<!-- END ADD A BREWERY -->
 
+<!-- BUILD YOUR MENU -->
 <template id="build-menu">
   <div class="container">
     <div class="row">
@@ -139,9 +147,14 @@
         <div class="panel-heading"><i v-show="loading">...Loading beers...</i></div>
         <div v-for="beer in filteredBeers" class="beerCard">
           <div class="row"> <!--align-items-center-->
-            <div class="col-10">
+            <div class="col-8">
               <h4>{{ beer.brewery }}</h4>
               <h6>{{ beer.name }}</h6>
+            </div>
+            <div class="col-2">
+              <router-link :to="{ name: 'EditBeer', params: { id: beer.id }}">
+                <i class="fa fa-pencil-square-o"></i>
+              </router-link>
             </div>
             <div class="col-2">
               <a class="addBeer" v-on:click="addBeer(beer)"><i class="fa fa-plus-square-o"></i></a>
@@ -155,20 +168,22 @@
         <div class="activeMenu-wrapper">
           <h3>Today's Menu</h3>
           <div class="activeMenu">
-            <draggable class="dragArea">
-              <div v-for="(beer, index) in activeBeers" class="activeMenu-item">
+
+            <draggable class="dragArea" v-bind:list="activeBeers" v-bind:options="{sort: true, draggable: '.activeMenu-item'}" v-on:change="draggableUpdateDrop" v-bind:move="draggableMove">
+              <article v-for="(beer, index) in activeBeers" class="activeMenu-item">
                 <p>{{ beer.brewery }} <strong>{{ beer.name }}</strong>
                   <a class="removeBeer" v-on:click="removeBeer(index)"><i class="fa fa-minus"></i></a>
                 </p>
-              </div>
+              </article>
             </draggable>
+
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </template>
+<!-- END BUILD YOUR MENU -->
 
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
