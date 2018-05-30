@@ -25,6 +25,7 @@ Vue.component('v-select', VueSelect.VueSelect);
 
 // Base Url of the API
 const beerListJson = "/resources/data/beers.json";
+const breweryListJson = "/resources/data/breweries.json";
 
 const BuildMenu = {
   template: '#build-menu',
@@ -52,19 +53,19 @@ const BuildMenu = {
     getBeers() {
       this.loading = true;
       axios.get(beerListJson).then(response => {
-        this.beers = response.data
+        this.beers = response.data;
         this.loading = false;
       }).catch(error => {
         console.log(error);
       });
     },
     populateMenu() {
-      axios.get('get_menu.php').then(response => {
-        if (response.data.error) {
-          console.log('error', response.data.error)
-        } else {
+      axios.get('/get_menu.php').then(response => {
+        if (response.data.error === false) {
           this.activeBeers = response.data.beers;
           console.log('success', response.data.message)
+        } else {
+          console.log('error', response.data.error)
         }
       }).catch(error => {
         console.log(error.response)
@@ -79,13 +80,13 @@ const BuildMenu = {
       this.updateMenu();
     },
     updateMenu() {
-      axios.post('update_menu.php', {
+      axios.post('/update_menu.php', {
         'activeBeers': this.activeBeers
       }).then(response => {
-        if (response.data.error) {
-          console.log('error update menu', response.data.error)
-        } else {
+        if (response.data.error === false) {
           console.log('success update menu', response.data.message)
+        } else {
+          console.log('error update menu', response.data.error)
         }
       }).catch(error => {
         console.log(error.response)
@@ -106,45 +107,44 @@ const BuildMenu = {
 const AddBeer = {
   template: '#add-beer',
   data: () => ({
-    editableBeer: [],
-    name: '',
-    brewery: '',
-    style: '',
-    glassware: '',
-    abv: '',
-    description: '',
+    beer: [],
     attemptSubmit: false,
     postStatus: false,
-    breweryOptions: ['one', 'two', 'three']
+    breweryOptions: []
   }),
   mounted() {
     this.populateBreweries();
     this.getEditableBeer();
   },
   computed: {
-    missingName: function () { return this.name === ''; },
-    missingDescription: function () { return this.description === ''; }
-    // currentBeer: function() {
-    //   var passedID = this.$route.params.id;
-    //   var filteredBeers = this.beers.filter(beer => {return beer.id == passedID});
-    //   return filteredBeers[0];
-    // }
+    missingName: function () { return this.beer.name === ''; },
+    missingDescription: function () { return this.beer.description === ''; }
   },
   methods: {
     populateBreweries() {
-      axios.get(beerListJson).then(response => {
-        this.breweryOptions = ['hi', 'bye'];
+      axios.get(breweryListJson).then(response => {
+        this.breweryOptions = this.format_breweries_to_options(response.data);
       }).catch(error => {
         console.log(error);
       });
     },
+    format_breweries_to_options(data) {
+      var options = [];
+      $.each(data, function( index, value ) {
+        options.push({'label':value.name,'value':value.id});
+      });
+      return options;
+    },
     getEditableBeer(){
       var passedID = this.$route.params.id;
-      axios.get(beerListJson).then(response => {
-        this.editableBeer = response.data[0];
-      }).catch(error => {
-        console.log(error);
-      });
+      if (!isNaN(passedID)) {
+        axios.get(beerListJson).then(response => {
+          // @todo call correct beer
+          this.beer = response.data[0];
+        }).catch(error => {
+          console.log(error);
+        });
+      }
     },
     validateForm: function (event) {
       this.attemptSubmit = true;
@@ -155,33 +155,29 @@ const AddBeer = {
       }
     },
     onSubmit () {
-      axios.post('insert_beer.php', {
-        'name': this.name,
-        'brewery': this.brewery,
-        'style': this.style,
-        'glassware': this.glassware,
-        'abv': this.abv,
-        'description': this.description
+      axios.post('/insert_beer.php', {
+        'beer_id': this.beer.id,
+        'name': this.beer.name,
+        'brewery_id': this.beer.brewery.value,
+        'style': this.beer.style,
+        'glassware': this.beer.glassware,
+        'abv': this.beer.abv,
+        'description': this.beer.description
       }).then(response => {
-        if (response.data.error) {
-          console.log('error', response.data.error)
-        } else {
+        if (response.data.error === false) {
           this.postStatus = true;
           console.log('success', response.data.message)
+        } else {
+          console.log('error', response.data.error)
         }
       }).catch(error => {
-        console.log(error.response)
+        console.log(error.response);
       });
     },
     startOver () {
       this.attemptSubmit = false;
       this.postStatus = false;
-      this.name = '';
-      this.brewery = '';
-      this.style = '';
-      this.glassware = '';
-      this.abv = '';
-      this.description = '';
+      this.beer = [];
     }
   },
 };
@@ -209,15 +205,15 @@ const AddBrewery = {
       }
     },
     onSubmit () {
-      axios.post('insert_brewery.php', {
+      axios.post('/insert_brewery.php', {
         'name': this.name,
         'location': this.location
       }).then(response => {
-        if (response.data.error) {
-          console.log('error', response.data.error)
-        } else {
+        if (response.data.error === false) {
           this.postStatus = true;
           console.log('success', response.data.message)
+        } else {
+          console.log('error', response.data.error)
         }
       }).catch(error => {
         console.log(error.response)

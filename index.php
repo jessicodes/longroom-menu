@@ -43,24 +43,24 @@
 <template id="add-beer">
   <div class="container">
 
-    <h1 v-if="editableBeer.id">Edit Beer</h1>
+    <h1 v-if="beer.id">Edit Beer</h1>
     <h1 v-else>Add a Beer</h1>
 
     <div v-if="!postStatus">
       <form id="form" method="post" v-on:submit.prevent="validateForm">
         <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingName }">
           <label for="name">Name</label>
-          <input type="text" class="form-control" name="name" id="name" v-model="editableBeer.name" />
+          <input type="text" class="form-control" name="name" id="name" v-model="beer.name" />
           <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingName">This field is required.</span>
         </div>
         <div class="form-group">
           <label for="brewery">Brewery</label><br />
-          <v-select :options="breweryOptions"></v-select>
+          <v-select :options="breweryOptions" v-model="beer.brewery"></v-select>
 <!--          <input type="text" class="form-control" name="brewery" id="brewery" v-model="brewery" />-->
         </div>
         <div class="form-group">
           <label for="style">Beer Style</label><br />
-          <select class="form-control" name="style" id="style" v-model="style" value="">
+          <select class="form-control" name="style" id="style" v-model="beer.style" value="">
             <option value="">- choose one -</option>
             <option value="Pale Ale">Pale Ale</option>
             <option value="Sour">Sour</option>
@@ -69,7 +69,7 @@
         </div>
         <div class="form-group">
           <label for="glassware">Glassware</label><br />
-          <select class="form-control" name="glassware" id="glassware" v-model="glassware" value="">
+          <select class="form-control" name="glassware" id="glassware" v-model="beer.glassware" value="">
             <option value="">- choose one -</option>
             <option value="Custom">Custom</option>
             <option value="Goblet">Goblet</option>
@@ -78,21 +78,21 @@
         </div>
         <div class="form-group">
           <label for="abv">ABV</label><br />
-          <input type="number" class="form-control" name="abv" id="abv" v-model="abv" min="0" step=".01" />
+          <input type="number" class="form-control" name="abv" id="abv" v-model="beer.abv" min="0" step=".01" />
           <small  class="form-text text-muted">
             Do not include %
           </small>
         </div>
         <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingDescription }">
           <label for="description">Description</label><br />
-          <textarea class="form-control" name="description" id="description" rows="5" v-model="description"></textarea>
+          <textarea class="form-control" name="description" id="description" rows="5" v-model="beer.description"></textarea>
           <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingDescription">This field is required.</span>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
     <div v-if="postStatus">
-      <div class="alert alert-success" role="alert">The beer was successfully added.</div>
+      <div class="alert alert-success" role="alert">Success!</div>
       <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Beer</button>
     </div>
   </div>

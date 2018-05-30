@@ -137,3 +137,78 @@
 [Wed May 23 03:47:34.692148 2018] [php7:notice] [pid 23] [client 172.30.0.1:39178] PHP Notice:  Undefined variable: success in /var/www/html/update_menu.php on line 42, referer: http://longroom.loc/
 [Wed May 23 03:48:44.197722 2018] [php7:notice] [pid 22] [client 172.30.0.1:39194] PHP Notice:  Array to string conversion in /var/www/html/update_menu.php on line 37, referer: http://longroom.loc/
 [Wed May 23 03:48:49.926556 2018] [php7:notice] [pid 22] [client 172.30.0.1:39194] PHP Notice:  Array to string conversion in /var/www/html/update_menu.php on line 37, referer: http://longroom.loc/
+[Sun May 27 22:16:16.077484 2018] [php7:notice] [pid 20] [client 172.30.0.1:41066] PHP Notice:  Undefined index: name in /var/www/html/insert_beer.php on line 15, referer: http://longroom.loc/add-beer
+[Sun May 27 22:16:16.099488 2018] [php7:notice] [pid 20] [client 172.30.0.1:41066] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 22, referer: http://longroom.loc/add-beer
+[Sun May 27 22:16:16.100385 2018] [php7:notice] [pid 20] [client 172.30.0.1:41066] PHP Notice:  Undefined index: description in /var/www/html/insert_beer.php on line 23, referer: http://longroom.loc/add-beer
+[Sun May 27 22:17:12.471754 2018] [php7:notice] [pid 17] [client 172.30.0.1:41098] PHP Notice:  Undefined index: name in /var/www/html/insert_beer.php on line 15, referer: http://longroom.loc/add-beer
+[Sun May 27 22:17:12.475265 2018] [php7:notice] [pid 17] [client 172.30.0.1:41098] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 22, referer: http://longroom.loc/add-beer
+[Sun May 27 22:17:12.475758 2018] [php7:notice] [pid 17] [client 172.30.0.1:41098] PHP Notice:  Undefined index: description in /var/www/html/insert_beer.php on line 23, referer: http://longroom.loc/add-beer
+[Sun May 27 22:18:54.011101 2018] [php7:notice] [pid 22] [client 172.30.0.1:41114] PHP Notice:  Undefined index: name in /var/www/html/insert_beer.php on line 18, referer: http://longroom.loc/add-beer
+[Sun May 27 22:18:54.016275 2018] [php7:notice] [pid 22] [client 172.30.0.1:41114] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 25, referer: http://longroom.loc/add-beer
+[Sun May 27 22:18:54.017684 2018] [php7:notice] [pid 22] [client 172.30.0.1:41114] PHP Notice:  Undefined index: description in /var/www/html/insert_beer.php on line 26, referer: http://longroom.loc/add-beer
+[Sun May 27 22:20:50.119931 2018] [php7:notice] [pid 20] [client 172.30.0.1:41130] PHP Notice:  Undefined index: name in /var/www/html/insert_beer.php on line 19, referer: http://longroom.loc/add-beer
+[Sun May 27 22:20:50.122807 2018] [php7:notice] [pid 20] [client 172.30.0.1:41130] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 26, referer: http://longroom.loc/add-beer
+[Sun May 27 22:20:50.123535 2018] [php7:notice] [pid 20] [client 172.30.0.1:41130] PHP Notice:  Undefined index: description in /var/www/html/insert_beer.php on line 27, referer: http://longroom.loc/add-beer
+[Sun May 27 22:21:11.045115 2018] [php7:notice] [pid 17] [client 172.30.0.1:41146] PHP Notice:  Undefined index: name in /var/www/html/insert_beer.php on line 19, referer: http://longroom.loc/add-beer
+[Sun May 27 22:21:11.048458 2018] [php7:notice] [pid 17] [client 172.30.0.1:41146] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 26, referer: http://longroom.loc/add-beer
+[Sun May 27 22:21:11.049070 2018] [php7:notice] [pid 17] [client 172.30.0.1:41146] PHP Notice:  Undefined index: description in /var/www/html/insert_beer.php on line 27, referer: http://longroom.loc/add-beer
+[Sun May 27 22:33:53.828541 2018] [php7:notice] [pid 20] [client 172.30.0.1:41320] PHP Notice:  Undefined variable: input in /var/www/html/insert_beer.php on line 16, referer: http://longroom.loc/add-beer
+[Sun May 27 22:33:53.831985 2018] [php7:notice] [pid 20] [client 172.30.0.1:41320] PHP Notice:  Undefined variable: input in /var/www/html/insert_beer.php on line 17, referer: http://longroom.loc/add-beer
+[Sun May 27 22:33:53.833158 2018] [php7:notice] [pid 20] [client 172.30.0.1:41320] PHP Notice:  Undefined variable: input in /var/www/html/insert_beer.php on line 18, referer: http://longroom.loc/add-beer
+[Sun May 27 22:33:53.834029 2018] [php7:notice] [pid 20] [client 172.30.0.1:41320] PHP Notice:  Undefined variable: input in /var/www/html/insert_beer.php on line 19, referer: http://longroom.loc/add-beer
+[Sun May 27 22:39:22.008301 2018] [php7:notice] [pid 15] [client 172.30.0.1:41432] PHP Notice:  Undefined index: style in /var/www/html/insert_beer.php on line 22, referer: http://longroom.loc/add-beer
+[Sun May 27 22:39:22.014562 2018] [php7:notice] [pid 15] [client 172.30.0.1:41432] PHP Notice:  Undefined index: glassware in /var/www/html/insert_beer.php on line 23, referer: http://longroom.loc/add-beer
+[Sun May 27 23:47:35.977806 2018] [php7:notice] [pid 20] [client 172.30.0.1:41454] PHP Notice:  Undefined index: id in /var/www/html/insert_beer.php on line 13, referer: http://longroom.loc/add-beer
+[Sun May 27 23:51:30.900256 2018] [php7:notice] [pid 16] [client 172.30.0.1:41500] PHP Notice:  Undefined index: style in /var/www/html/insert_beer.php on line 22, referer: http://longroom.loc/add-beer
+[Sun May 27 23:51:30.906956 2018] [php7:notice] [pid 16] [client 172.30.0.1:41500] PHP Notice:  Undefined index: glassware in /var/www/html/insert_beer.php on line 23, referer: http://longroom.loc/add-beer
+[Sun May 27 23:51:30.908016 2018] [php7:notice] [pid 16] [client 172.30.0.1:41500] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 24, referer: http://longroom.loc/add-beer
+[Sun May 27 23:52:50.166097 2018] [php7:notice] [pid 21] [client 172.30.0.1:41504] PHP Notice:  Undefined index: style in /var/www/html/insert_beer.php on line 22, referer: http://longroom.loc/add-beer
+[Sun May 27 23:52:50.173641 2018] [php7:notice] [pid 21] [client 172.30.0.1:41504] PHP Notice:  Undefined index: glassware in /var/www/html/insert_beer.php on line 23, referer: http://longroom.loc/add-beer
+[Sun May 27 23:52:50.174761 2018] [php7:notice] [pid 21] [client 172.30.0.1:41504] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 24, referer: http://longroom.loc/add-beer
+[Sun May 27 23:53:04.622083 2018] [php7:notice] [pid 17] [client 172.30.0.1:41514] PHP Notice:  Undefined index: style in /var/www/html/insert_beer.php on line 22, referer: http://longroom.loc/add-beer
+[Sun May 27 23:53:04.624983 2018] [php7:notice] [pid 17] [client 172.30.0.1:41514] PHP Notice:  Undefined index: glassware in /var/www/html/insert_beer.php on line 23, referer: http://longroom.loc/add-beer
+[Sun May 27 23:53:04.625877 2018] [php7:notice] [pid 17] [client 172.30.0.1:41514] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 24, referer: http://longroom.loc/add-beer
+[Sun May 27 23:53:18.835591 2018] [php7:notice] [pid 21] [client 172.30.0.1:41524] PHP Notice:  Undefined index: style in /var/www/html/insert_beer.php on line 22, referer: http://longroom.loc/add-beer
+[Sun May 27 23:53:18.838505 2018] [php7:notice] [pid 21] [client 172.30.0.1:41524] PHP Notice:  Undefined index: glassware in /var/www/html/insert_beer.php on line 23, referer: http://longroom.loc/add-beer
+[Sun May 27 23:53:18.839339 2018] [php7:notice] [pid 21] [client 172.30.0.1:41524] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 24, referer: http://longroom.loc/add-beer
+[Sun May 27 23:54:43.046176 2018] [php7:notice] [pid 23] [client 172.30.0.1:41558] PHP Notice:  Undefined index: style in /var/www/html/insert_beer.php on line 22, referer: http://longroom.loc/add-beer
+[Sun May 27 23:54:43.052539 2018] [php7:notice] [pid 23] [client 172.30.0.1:41558] PHP Notice:  Undefined index: glassware in /var/www/html/insert_beer.php on line 23, referer: http://longroom.loc/add-beer
+[Sun May 27 23:54:43.053105 2018] [php7:notice] [pid 23] [client 172.30.0.1:41558] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 24, referer: http://longroom.loc/add-beer
+[Tue May 29 02:11:46.631736 2018] [php7:notice] [pid 21] [client 172.30.0.1:41882] PHP Notice:  Undefined index: name in /var/www/html/insert_beer.php on line 23
+[Tue May 29 02:11:46.646412 2018] [php7:notice] [pid 21] [client 172.30.0.1:41882] PHP Notice:  Undefined index: style in /var/www/html/insert_beer.php on line 26
+[Tue May 29 02:11:46.647453 2018] [php7:notice] [pid 21] [client 172.30.0.1:41882] PHP Notice:  Undefined index: glassware in /var/www/html/insert_beer.php on line 27
+[Tue May 29 02:11:46.648215 2018] [php7:notice] [pid 21] [client 172.30.0.1:41882] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 28
+[Tue May 29 02:11:46.648888 2018] [php7:notice] [pid 21] [client 172.30.0.1:41882] PHP Notice:  Undefined index: description in /var/www/html/insert_beer.php on line 29
+[Tue May 29 02:31:04.238087 2018] [php7:notice] [pid 18] [client 172.30.0.1:42204] PHP Notice:  Undefined index: name in /var/www/html/insert_beer.php on line 23, referer: http://longroom.loc/add-beer
+[Tue May 29 02:31:04.245431 2018] [php7:notice] [pid 18] [client 172.30.0.1:42204] PHP Notice:  Undefined index: style in /var/www/html/insert_beer.php on line 27, referer: http://longroom.loc/add-beer
+[Tue May 29 02:31:04.246444 2018] [php7:notice] [pid 18] [client 172.30.0.1:42204] PHP Notice:  Undefined index: glassware in /var/www/html/insert_beer.php on line 28, referer: http://longroom.loc/add-beer
+[Tue May 29 02:31:04.247305 2018] [php7:notice] [pid 18] [client 172.30.0.1:42204] PHP Notice:  Undefined index: abv in /var/www/html/insert_beer.php on line 29, referer: http://longroom.loc/add-beer
+[Tue May 29 02:31:04.248042 2018] [php7:notice] [pid 18] [client 172.30.0.1:42204] PHP Notice:  Undefined index: description in /var/www/html/insert_beer.php on line 30, referer: http://longroom.loc/add-beer
+[Tue May 29 02:53:14.492975 2018] [php7:notice] [pid 23] [client 172.30.0.1:42630] PHP Notice:  Undefined index: style in /var/www/html/insert_beer.php on line 27, referer: http://longroom.loc/edit-beer/5
+[Wed May 30 02:20:09.918991 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed May 30 02:20:09.929754 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
+[Wed May 30 02:20:10.960953 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed May 30 02:20:10.962077 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
+[Wed May 30 02:46:26.141958 2018] [php7:notice] [pid 16] [client 172.30.0.1:56666] PHP Notice:  Undefined index: abv in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:46:26.144046 2018] [php7:notice] [pid 16] [client 172.30.0.1:56666] PHP Notice:  Undefined index: abv in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:46:26.145453 2018] [php7:notice] [pid 16] [client 172.30.0.1:56666] PHP Notice:  Undefined index: abv in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:46:26.146198 2018] [php7:notice] [pid 16] [client 172.30.0.1:56666] PHP Notice:  Undefined index: abv in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:46:26.146808 2018] [php7:notice] [pid 16] [client 172.30.0.1:56666] PHP Notice:  Undefined index: abv in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:46:26.147531 2018] [php7:notice] [pid 16] [client 172.30.0.1:56666] PHP Notice:  Undefined index: abv in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:46:26.148084 2018] [php7:notice] [pid 16] [client 172.30.0.1:56666] PHP Notice:  Undefined index: abv in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:46:26.148693 2018] [php7:notice] [pid 16] [client 172.30.0.1:56666] PHP Notice:  Undefined index: abv in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:47:57.323872 2018] [php7:notice] [pid 17] [client 172.30.0.1:56674] PHP Notice:  Undefined index: id in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:47:57.324518 2018] [php7:notice] [pid 17] [client 172.30.0.1:56674] PHP Notice:  Undefined index: id in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:47:57.325074 2018] [php7:notice] [pid 17] [client 172.30.0.1:56674] PHP Notice:  Undefined index: id in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:47:57.325640 2018] [php7:notice] [pid 17] [client 172.30.0.1:56674] PHP Notice:  Undefined index: id in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:47:57.326147 2018] [php7:notice] [pid 17] [client 172.30.0.1:56674] PHP Notice:  Undefined index: id in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:47:57.326726 2018] [php7:notice] [pid 17] [client 172.30.0.1:56674] PHP Notice:  Undefined index: id in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:47:57.327306 2018] [php7:notice] [pid 17] [client 172.30.0.1:56674] PHP Notice:  Undefined index: id in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:47:57.327989 2018] [php7:notice] [pid 17] [client 172.30.0.1:56674] PHP Notice:  Undefined index: id in /var/www/html/db/library/NotORM/Row.php on line 166
+[Wed May 30 02:52:33.067534 2018] [php7:warn] [pid 21] [client 172.30.0.1:56690] PHP Warning:  fopen(/resources/data/beers.json): failed to open stream: No such file or directory in /var/www/html/create_json.php on line 13
+[Wed May 30 04:30:34.300275 2018] [php7:warn] [pid 16] [client 172.30.0.1:57344] PHP Warning:  include_once(/var/www/html/create_json.php): failed to open stream: No such file or directory in /var/www/html/insert_beer.php on line 15, referer: http://longroom.loc/add-beer
+[Wed May 30 04:30:34.304448 2018] [php7:warn] [pid 16] [client 172.30.0.1:57344] PHP Warning:  include_once(): Failed opening '/var/www/html/create_json.php' for inclusion (include_path='.:/usr/local/lib/php') in /var/www/html/insert_beer.php on line 15, referer: http://longroom.loc/add-beer
+[Wed May 30 04:30:37.079091 2018] [php7:warn] [pid 16] [client 172.30.0.1:57344] PHP Warning:  include_once(/var/www/html/create_json.php): failed to open stream: No such file or directory in /var/www/html/insert_beer.php on line 15, referer: http://longroom.loc/add-beer
+[Wed May 30 04:30:37.079455 2018] [php7:warn] [pid 16] [client 172.30.0.1:57344] PHP Warning:  include_once(): Failed opening '/var/www/html/create_json.php' for inclusion (include_path='.:/usr/local/lib/php') in /var/www/html/insert_beer.php on line 15, referer: http://longroom.loc/add-beer
+[Wed May 30 04:31:45.961474 2018] [php7:warn] [pid 23] [client 172.30.0.1:57366] PHP Warning:  include_once(/var/www/html/create_json.php): failed to open stream: No such file or directory in /var/www/html/insert_beer.php on line 15, referer: http://longroom.loc/add-beer
+[Wed May 30 04:31:45.964566 2018] [php7:warn] [pid 23] [client 172.30.0.1:57366] PHP Warning:  include_once(): Failed opening '/var/www/html/create_json.php' for inclusion (include_path='.:/usr/local/lib/php') in /var/www/html/insert_beer.php on line 15, referer: http://longroom.loc/add-beer

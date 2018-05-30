@@ -8,42 +8,51 @@ include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
 
 // passed data, if any
 $inputJSON = file_get_contents('php://input');
-$input = json_decode($inputJSON, TRUE);
+$data = json_decode($inputJSON, TRUE);
 
-$name = $input['name'];
-$brewery = $input['brewery'];
-$style = $input['style'];
-$glassware = $input['glassware'];
-$abv = $input['abv'];
-$description = $input['description'];
+// Action: update vs insert
+$update_beer_id = '';
+$action = 'insert';
+if (!empty($data['beer_id'])) {
+  $update_beer_id = $data['beer_id'];
+  $action = 'update';
+}
 
-// Insert into DB
-$beers = $db->library->beer();
+// Data for DB
 $data = array(
-  "name" => $name,
-  "brewery_id" => 1,
-  "brewery" => $brewery,
+  "name" => $data['name'],
+  "brewery_id" => $data['brewery_id'],
+  "brewery" => '',
   "location" => 'Location will come from brewery',
-  "style" => $style,
-  "glassware" => $glassware,
-  "abv" => $abv,
-  "description" => $description,
+  "style" => $data['style'],
+  "glassware" => $data['glassware'],
+  "abv" => $data['abv'],
+  "description" => $data['description'],
   "added" => new NotORM_Literal("NOW()"),
   "updated" => new NotORM_Literal("NOW()")
 );
-$beers->insert($data);
-$id = $beers->insert_id();
 
-$result['message'] = '';
-$result['error']  = false;
+if ($action == 'insert') {
+  // insert
+  $beers = $db->library->beer();
+  $success = $beers->insert($data);
+  //$id = $beers->insert_id();
+} else {
+  // update
+  $beer = $db->library->beer[$update_beer_id];
+  $success = $beer->update($data);
+}
 
-if ($id){
-  $result['message']  = "Posted Values => ".$name."-".$description."-".$brewery;
+if ($success) {
+  $result['message'] =  $action . " was a success!";
   $result['error']  = false;
-}
-else {
-  $result['error']  = 'Form submission failed.';
-}
 
+  // Update JSON of all beers
+  include_once($_SERVER['DOCUMENT_ROOT']."/create_beers_json.php");
+
+} else {
+  $result['message']  = 'Form ' . $action . ' failed.';
+  $result['error']  = true;
+}
 
 echo json_encode($result);
