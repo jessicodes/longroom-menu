@@ -1,31 +1,10 @@
-// var app = new Vue({
-//   el: "#Main",
-//   data: function() {
-//     return {
-//       search: '',
-//       beers: [
-//         { id: '1', name: 'Jhon Snow', profile_pic: 'https://i.stack.imgur.com/CE5lz.png'},
-//         { id: '2', name: 'Deanerys Targarian', profile_pic: 'https://i.stack.imgur.com/CE5lz.png'},
-//         { id: '3', name: 'Jaime Lanister', profile_pic: 'https://i.stack.imgur.com/CE5lz.png'},
-//         { id: '4', name: 'Tyron Lanister', profile_pic: 'https://i.stack.imgur.com/CE5lz.png'}
-//       ]};
-//   },
-//   computed:
-//     {
-//       filteredBeers:function()
-//       {
-//         var self = this;
-//         return this.beers.filter(function(beer){return beer.name.toLowerCase().indexOf(self.search.toLowerCase())>=0;});
-//         //return this.customers;
-//       }
-//     }
-// });
-
 Vue.component('v-select', VueSelect.VueSelect);
 
 // Base Url of the API
 const beerListJson = "/resources/data/beers.json";
 const breweryListJson = "/resources/data/breweries.json";
+const styleListJson = "/resources/data/styles.json";
+const glasswareListJson = "/resources/data/glassware.json";
 
 const BuildMenu = {
   template: '#build-menu',
@@ -96,7 +75,7 @@ const BuildMenu = {
   computed: {
     filteredBeers() {
       return this.beers.filter(beer => {
-        var beerTitle =  beer.brewery + ' ' + beer.name + ' ' + beer.brewery;
+        var beerTitle =  beer.brewery.label + ' ' + beer.name + ' ' + beer.brewery.label;
         return beerTitle.toLowerCase().includes(this.search.toLowerCase());
       })
     }
@@ -110,10 +89,14 @@ const AddBeer = {
     beer: [],
     attemptSubmit: false,
     postStatus: false,
-    breweryOptions: []
+    breweryOptions: [],
+    styleOptions: [],
+    glasswareOptions: []
   }),
   mounted() {
     this.populateBreweries();
+    this.populateStyles();
+    this.populateGlassware();
     this.getEditableBeer();
   },
   computed: {
@@ -123,26 +106,41 @@ const AddBeer = {
   methods: {
     populateBreweries() {
       axios.get(breweryListJson).then(response => {
-        this.breweryOptions = this.format_breweries_to_options(response.data);
+        this.breweryOptions = this.format_json_to_options(response.data);
       }).catch(error => {
         console.log(error);
       });
     },
-    format_breweries_to_options(data) {
+    populateStyles() {
+      axios.get(styleListJson).then(response => {
+        this.styleOptions = this.format_json_to_options(response.data);
+      }).catch(error => {
+        console.log(error);
+      });
+    },
+    populateGlassware() {
+      axios.get(glasswareListJson).then(response => {
+        this.glasswareOptions = this.format_json_to_options(response.data);
+      }).catch(error => {
+        console.log(error);
+      });
+    },
+    format_json_to_options(data) {
       var options = [];
       $.each(data, function( index, value ) {
-        options.push({'label':value.name,'value':value.id});
+        options.push({'id':value.id, 'label':value.name});
       });
       return options;
     },
     getEditableBeer(){
-      var passedID = this.$route.params.id;
-      if (!isNaN(passedID)) {
-        axios.get(beerListJson).then(response => {
-          // @todo call correct beer
-          this.beer = response.data[0];
+      var beer_id = this.$route.params.id;
+      if (!isNaN(beer_id)) {
+        axios.post('/get_beer.php', {
+          'beer_id': beer_id
+        }).then(response => {
+          this.beer = response.data.beer;
         }).catch(error => {
-          console.log(error);
+          console.log(error)
         });
       }
     },
@@ -158,9 +156,9 @@ const AddBeer = {
       axios.post('/insert_beer.php', {
         'beer_id': this.beer.id,
         'name': this.beer.name,
-        'brewery_id': this.beer.brewery.value,
-        'style': this.beer.style,
-        'glassware': this.beer.glassware,
+        'brewery_id': this.beer.brewery.id,
+        'style_id': this.beer.style.id,
+        'glassware_id': this.beer.glassware.id,
         'abv': this.beer.abv,
         'description': this.beer.description
       }).then(response => {
@@ -168,7 +166,7 @@ const AddBeer = {
           this.postStatus = true;
           console.log('success', response.data.message)
         } else {
-          console.log('error', response.data.error)
+          console.log('error', response)
         }
       }).catch(error => {
         console.log(error.response);

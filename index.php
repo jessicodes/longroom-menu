@@ -56,25 +56,14 @@
         <div class="form-group">
           <label for="brewery">Brewery</label><br />
           <v-select :options="breweryOptions" v-model="beer.brewery"></v-select>
-<!--          <input type="text" class="form-control" name="brewery" id="brewery" v-model="brewery" />-->
         </div>
         <div class="form-group">
           <label for="style">Beer Style</label><br />
-          <select class="form-control" name="style" id="style" v-model="beer.style" value="">
-            <option value="">- choose one -</option>
-            <option value="Pale Ale">Pale Ale</option>
-            <option value="Sour">Sour</option>
-            <option value="Wheat">Wheat</option>
-          </select>
+          <v-select :options="styleOptions" v-model="beer.style"></v-select>
         </div>
         <div class="form-group">
           <label for="glassware">Glassware</label><br />
-          <select class="form-control" name="glassware" id="glassware" v-model="beer.glassware" value="">
-            <option value="">- choose one -</option>
-            <option value="Custom">Custom</option>
-            <option value="Goblet">Goblet</option>
-            <option value="Pint">Pint</option>
-          </select>
+          <v-select :options="glasswareOptions" v-model="beer.glassware"></v-select>
         </div>
         <div class="form-group">
           <label for="abv">ABV</label><br />
@@ -148,13 +137,16 @@
         <div v-for="beer in filteredBeers" class="beerCard">
           <div class="row"> <!--align-items-center-->
             <div class="col-8">
-              <h4>{{ beer.brewery }}</h4>
+              <h4>{{ beer.brewery.label }}</h4>
               <h6>{{ beer.name }}</h6>
+              {{ beer.description }}
+              ----
+              {{ beer.style.label }}
+              ----
+              {{ beer.glassware.label }}
             </div>
             <div class="col-2">
-              <router-link :to="{ name: 'EditBeer', params: { id: beer.id }}">
-                <i class="fa fa-pencil-square-o"></i>
-              </router-link>
+              <router-link :to="{ name: 'EditBeer', params: { id: beer.id }}"><i class="fa fa-pencil-square-o"></i></router-link>
             </div>
             <div class="col-2">
               <a class="addBeer" v-on:click="addBeer(beer)"><i class="fa fa-plus-square-o"></i></a>
@@ -171,7 +163,7 @@
 
             <draggable class="dragArea" v-bind:list="activeBeers" v-bind:options="{sort: true, draggable: '.activeMenu-item'}" v-on:change="draggableUpdateDrop" v-bind:move="draggableMove">
               <article v-for="(beer, index) in activeBeers" class="activeMenu-item">
-                <p>{{ beer.brewery }} <strong>{{ beer.name }}</strong>
+                <p>{{ beer.brewery.label }} <strong>{{ beer.name }}</strong>
                   <a class="removeBeer" v-on:click="removeBeer(index)"><i class="fa fa-minus"></i></a>
                 </p>
               </article>

@@ -10,7 +10,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
 $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON, TRUE);
 
-// insert into DB
+// get users menu from DB
 $menu_id = 1;
 $menu = $db->library->menu[$menu_id];
 $beer_ids = $menu['beer_ids'];
@@ -20,7 +20,26 @@ $beers = array();
 if (!empty($beer_ids)) {
   $beer_ids = explode(',', $beer_ids);
   foreach ($beer_ids as $beer_id) {
-    $beers[] = $db->library->beer[$beer_id];
+    $beer = $db->library->beer[$beer_id];
+    $beers[] = array(
+      'id' => $beer["id"],
+      'name' => $beer["name"],
+      'brewery' => array(
+        'id' => $beer->brewery["id"],
+        'label' => $beer->brewery["name"],
+        'location' => $beer->brewery["location"],
+      ),
+      'style' => array(
+        'id' => $beer->style["id"],
+        'label' => $beer->style["name"],
+      ),
+      'glassware' => array(
+        'id' => $beer->glassware["id"],
+        'label' => $beer->glassware["name"],
+      ),
+      "abv" => $beer['abv'],
+      "description" => $beer['description'],
+    );
   }
 }
 

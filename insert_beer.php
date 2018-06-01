@@ -22,19 +22,17 @@ if (!empty($data['beer_id'])) {
 $data = array(
   "name" => $data['name'],
   "brewery_id" => $data['brewery_id'],
-  "brewery" => '',
-  "location" => 'Location will come from brewery',
-  "style" => $data['style'],
-  "glassware" => $data['glassware'],
+  "style_id" => $data['style_id'],
+  "glassware_id" => $data['glassware_id'],
   "abv" => $data['abv'],
   "description" => $data['description'],
-  "added" => new NotORM_Literal("NOW()"),
   "updated" => new NotORM_Literal("NOW()")
 );
 
 if ($action == 'insert') {
   // insert
   $beers = $db->library->beer();
+  $data['added'] = new NotORM_Literal("NOW()");
   $success = $beers->insert($data);
   //$id = $beers->insert_id();
 } else {
@@ -44,7 +42,7 @@ if ($action == 'insert') {
 }
 
 if ($success) {
-  $result['message'] =  $action . " was a success!";
+  $result['message'] =  $action . "!";
   $result['error']  = false;
 
   // Update JSON of all beers
