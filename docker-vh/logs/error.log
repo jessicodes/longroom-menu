@@ -374,3 +374,7 @@
 [Fri Jun 01 04:22:21.066556 2018] [php7:notice] [pid 19] [client 172.30.0.1:59376] PHP Notice:  Trying to get property of non-object in /var/www/html/get_beer.php on line 28, referer: http://longroom.loc/edit-beer/29
 [Fri Jun 01 04:22:21.067118 2018] [php7:notice] [pid 19] [client 172.30.0.1:59376] PHP Notice:  Trying to get property of non-object in /var/www/html/get_beer.php on line 31, referer: http://longroom.loc/edit-beer/29
 [Fri Jun 01 04:22:21.067660 2018] [php7:notice] [pid 19] [client 172.30.0.1:59376] PHP Notice:  Trying to get property of non-object in /var/www/html/get_beer.php on line 32, referer: http://longroom.loc/edit-beer/29
+[Fri Jun 01 22:36:27.425331 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Jun 01 22:36:27.433085 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 01 22:36:27.534467 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Jun 01 22:36:27.535144 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name

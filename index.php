@@ -7,7 +7,7 @@
   ?>
   <meta charset="UTF-8">
   <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" media="screen" href="/resources/css/layout.css" type="text/css" />
+  <link rel="stylesheet" media="screen" href="/resources/css/CSS-layout.css" type="text/css" />
 </head>
 <body>
 
