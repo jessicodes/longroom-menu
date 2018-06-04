@@ -42,48 +42,50 @@
 
 <!-- ADD A BEER -->
 <template id="add-beer">
-  <main class="container">
+  <main class="container main main--full">
+    <div class="main__content">
 
-    <h1 v-if="beer.id">Edit Beer</h1>
-    <h1 v-else>Add a Beer</h1>
+      <h1 v-if="beer.id">Edit Beer</h1>
+      <h1 v-else>Add a Beer</h1>
 
-    <div v-if="!postStatus">
-      <form id="form" method="post" v-on:submit.prevent="validateForm">
-        <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingName }">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" name="name" id="name" v-model="beer.name" />
-          <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingName">This field is required.</span>
-        </div>
-        <div class="form-group">
-          <label for="brewery">Brewery</label><br />
-          <v-select :options="breweryOptions" v-model="beer.brewery"></v-select>
-        </div>
-        <div class="form-group">
-          <label for="style">Beer Style</label><br />
-          <v-select :options="styleOptions" v-model="beer.style"></v-select>
-        </div>
-        <div class="form-group">
-          <label for="glassware">Glassware</label><br />
-          <v-select :options="glasswareOptions" v-model="beer.glassware"></v-select>
-        </div>
-        <div class="form-group">
-          <label for="abv">ABV</label><br />
-          <input type="number" class="form-control" name="abv" id="abv" v-model="beer.abv" min="0" step=".01" />
-          <small  class="form-text text-muted">
-            Do not include %
-          </small>
-        </div>
-        <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingDescription }">
-          <label for="description">Description</label><br />
-          <textarea class="form-control" name="description" id="description" rows="5" v-model="beer.description"></textarea>
-          <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingDescription">This field is required.</span>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-    <div v-if="postStatus">
-      <div class="alert alert-success" role="alert">Success!</div>
-      <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Beer</button>
+      <div v-if="!postStatus">
+        <form id="form" method="post" v-on:submit.prevent="validateForm">
+          <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingName }">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name" v-model="beer.name" />
+            <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingName">This field is required.</span>
+          </div>
+          <div class="form-group">
+            <label for="brewery">Brewery</label><br />
+            <v-select :options="breweryOptions" v-model="beer.brewery"></v-select>
+          </div>
+          <div class="form-group">
+            <label for="style">Beer Style</label><br />
+            <v-select :options="styleOptions" v-model="beer.style"></v-select>
+          </div>
+          <div class="form-group">
+            <label for="glassware">Glassware</label><br />
+            <v-select :options="glasswareOptions" v-model="beer.glassware"></v-select>
+          </div>
+          <div class="form-group">
+            <label for="abv">ABV</label><br />
+            <input type="number" class="form-control" name="abv" id="abv" v-model="beer.abv" min="0" step=".01" />
+            <small  class="form-text text-muted">
+              Do not include %
+            </small>
+          </div>
+          <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingDescription }">
+            <label for="description">Description</label><br />
+            <textarea class="form-control" name="description" id="description" rows="5" v-model="beer.description"></textarea>
+            <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingDescription">This field is required.</span>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div v-if="postStatus">
+        <div class="alert alert-success" role="alert">Success!</div>
+        <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Beer</button>
+      </div>
     </div>
   </main>
 </template>
@@ -91,29 +93,31 @@
 
 <!-- ADD BREWERY -->
 <template id="add-brewery">
-  <main class="container">
-    <h1>Add Brewery</h1>
-    <div v-if="!postStatus">
-      <form id="form" method="post" v-on:submit.prevent="validateForm">
-        <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingName }">
-          <label for="name">Brewery Name</label>
-          <input type="text" class="form-control" name="name" id="name" v-model="name" />
-          <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingName">This field is required.</span>
-        </div>
-        <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingLocation }">
-          <label for="location">Brewery Location</label>
-          <input type="text" class="form-control" name="location" id="location" v-model="location" />
-          <small  class="form-text text-muted">
-            Ex. Chicago, IL
-          </small>
-          <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingLocation">This field is required.</span>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-    <div v-if="postStatus">
-      <div class="alert alert-success" role="alert">The brewery was successfully added.</div>
-      <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Brewery</button>
+  <main class="container main main--full">
+    <div class="main__content">
+      <h1>Add Brewery</h1>
+      <div v-if="!postStatus">
+        <form id="form" method="post" v-on:submit.prevent="validateForm">
+          <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingName }">
+            <label for="name">Brewery Name</label>
+            <input type="text" class="form-control" name="name" id="name" v-model="name" />
+            <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingName">This field is required.</span>
+          </div>
+          <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingLocation }">
+            <label for="location">Brewery Location</label>
+            <input type="text" class="form-control" name="location" id="location" v-model="location" />
+            <small  class="form-text text-muted">
+              Ex. Chicago, IL
+            </small>
+            <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingLocation">This field is required.</span>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div v-if="postStatus">
+        <div class="alert alert-success" role="alert">The brewery was successfully added.</div>
+        <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Brewery</button>
+      </div>
     </div>
   </main>
 </template>
@@ -122,58 +126,54 @@
 <!-- BUILD YOUR MENU -->
 <template id="build-menu">
   <main class="container main main--2cols">
-    <div class="main__left">
-      <div class="beerList">
+    <div class="main__content">
+      <h1>Beer Menu</h1>
 
-        <h1>Beer Menu</h1>
-
-        <div class="form-group">
-          <label for="searchBeer">Search a beer</label>
-          <input v-model="search" type="email" class="form-control" id="searchBeer" />
-        </div>
-
-        <p>Displaying {{ filteredBeers.length }} beers, filtered by <strong>{{ search }}</strong></p>
-
-        <div class="panel-heading"><i v-show="loading">...Loading beers...</i></div>
-
-        <section class="beerCards">
-          <div class="listTitles">
-            <div class="listTitle listTitle--large">Draft<span>Detailed</span></div>
-            <div class="listTitle listTitle--small">Type</div>
-            <div class="listTitle listTitle--small">From</div>
-            <div class="listTitle listTitle--small">Served</div>
-            <div class="listTitle listTitle--small">ABV</div>
-            <div class="listTitle listTitle--small">Price</div>
-          </div>
-          <article v-for="beer in filteredBeers" class="beerCard">
-            <header class="beerCard__header">
-              <h4 class="beerCard__brewery">{{ beer.brewery.label }}</h4>
-            </header>
-            <div class="beerCard__col beerCard__col--1">
-              <h6 class="beerCard__name">{{ beer.name }}</h6>
-              <p class="beerCard__description">{{ beer.description }}</p>
-              <router-link :to="{ name: 'EditBeer', params: { id: beer.id }}"><i class="fa fa-pencil-square-o"></i></router-link>
-              <a class="addBeer" v-on:click="addBeer(beer)"><i class="fa fa-plus-square-o"></i></a>
-            </div>
-            <div class="beerCard__col beerCard__col--2">
-              <span class="beerCard__style">{{ beer.style.label }}</span>
-            </div>
-            <div class="beerCard__col beerCard__col--3">
-              <span class="beerCard__location">{{ beer.brewery.location }}</span>
-            </div>
-            <div class="beerCard__col beerCard__col--4">
-              <span class="beerCard__glassware">{{ beer.glassware.label }}</span>
-            </div>
-            <div class="beerCard__col beerCard__col--5">
-              <span class="beerCard__abv">{{ beer.abv }}%</span>
-            </div>
-            <div class="beerCard__col beerCard__col--6">
-              <span class="beerCard__price">{{ beer.price }}$12</span>
-            </div>
-          </article>
-        </section>
-
+      <div class="form-group">
+        <label for="searchBeer">Search a beer</label>
+        <input v-model="search" type="email" class="form-control" id="searchBeer" />
       </div>
+
+      <p>Displaying {{ filteredBeers.length }} beers, filtered by <strong>{{ search }}</strong></p>
+
+      <div class="panel-heading"><i v-show="loading">...Loading beers...</i></div>
+
+      <section class="beerCards">
+        <div class="listTitles">
+          <div class="listTitle listTitle--large">Draft<span>Detailed</span></div>
+          <div class="listTitle listTitle--small">Type</div>
+          <div class="listTitle listTitle--small">From</div>
+          <div class="listTitle listTitle--small">Served</div>
+          <div class="listTitle listTitle--small">ABV</div>
+          <div class="listTitle listTitle--small">Price</div>
+        </div>
+        <article v-for="beer in filteredBeers" class="beerCard">
+          <header class="beerCard__header">
+            <h4 class="beerCard__brewery">{{ beer.brewery.label }}</h4>
+          </header>
+          <div class="beerCard__col beerCard__col--1">
+            <h6 class="beerCard__name">{{ beer.name }}</h6>
+            <p class="beerCard__description">{{ beer.description }}</p>
+            <router-link :to="{ name: 'EditBeer', params: { id: beer.id }}"><i class="fa fa-pencil-square-o"></i></router-link>
+            <a class="addBeer" v-on:click="addBeer(beer)"><i class="fa fa-plus-square-o"></i></a>
+          </div>
+          <div class="beerCard__col beerCard__col--2">
+            <span class="beerCard__style">{{ beer.style.label }}</span>
+          </div>
+          <div class="beerCard__col beerCard__col--3">
+            <span class="beerCard__location">{{ beer.brewery.location }}</span>
+          </div>
+          <div class="beerCard__col beerCard__col--4">
+            <span class="beerCard__glassware">{{ beer.glassware.label }}</span>
+          </div>
+          <div class="beerCard__col beerCard__col--5">
+            <span class="beerCard__abv">{{ beer.abv }}%</span>
+          </div>
+          <div class="beerCard__col beerCard__col--6">
+            <span class="beerCard__price">{{ beer.price }}$12</span>
+          </div>
+        </article>
+      </section>
     </div>
 
     <div class="main__right">

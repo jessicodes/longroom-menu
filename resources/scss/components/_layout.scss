@@ -1,13 +1,23 @@
 // Global site width class
 .container {
+    box-sizing: border-box;
     max-width: 1500px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 20px;
+    width: 100%;
+
+    @media all and (min-width: $screen-lg-min) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }
 
 // Global main area styles
-.main {
+body {
     background: var(--light-color, whitesmoke);
+}
+
+.main {
     padding-top: 30px;
 
     &--2cols {
@@ -16,12 +26,28 @@
     }
 }
 
-.main__left {
+.main__content {
     background: #fff;
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.05);
-    padding: 50px;
+    padding: 30px 15px;
+
+    @media all and (min-width: $screen-md-min) {
+        padding: 40px 30px;
+    }
+
+    @media all and (min-width: $screen-lg-min) {
+        padding: 50px;
+    }
 }
 
 .main__right {
-    padding: 50px;
+    padding: 30px 0 15px 15px;
+
+    @media all and (min-width: $screen-md-min) {
+        padding: 40px 0 15px 20px;
+    }
+
+    @media all and (min-width: $screen-lg-min) {
+        padding: 50px 0 15px 50px;
+    }
 }
