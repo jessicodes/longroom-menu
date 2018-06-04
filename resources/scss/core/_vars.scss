@@ -1,0 +1,47 @@
+
+/**
+ * Site wide variables
+ */
+
+:root {
+    // fonts
+    --primary-font: "nimbus-sans",sans-serif;
+    --default-font: Georgia, "Times New Roman", serif;
+
+    // colors
+    --highlight-color: #AD974F;
+    --highlight-alt-color: #8E793E;
+    --dark-color: #231f20;
+    --light-color: #eaeaea;
+}
+
+/**
+ * Mixins
+ */
+
+// Headings, ect.
+@mixin primary-font() {
+    font-family: var(--primary-font, sans-serif);
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+// Default font style
+@mixin default-font() {
+    font-family: var(--default-font, serif);
+    font-style: italic;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+// Adds fade to links on hover
+@mixin fade() {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transition: all 0.2s ease;
+    }
+}

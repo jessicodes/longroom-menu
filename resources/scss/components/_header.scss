@@ -1,0 +1,46 @@
+// Header Layout
+.header {
+    background:  var(--dark-color, black);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+    padding: 20px 0;
+    position: relative;
+}
+.header__container {
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-gap: 50px;
+    align-items: center;
+}
+
+// Logo
+.logo__image {
+    width: 100%;
+}
+
+// Navigation
+.navigation {
+    @include primary-font();
+    font-size: 1.6rem;
+    line-height: 1;
+    letter-spacing: normal;
+
+    &__items {
+        display: flex;
+        flex-direction: row;
+    }
+    &__item {
+        margin: 0 5px;
+        width: auto;
+    }
+    &__link {
+        border-radius: 20px;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+
+        &.router-link-exact-active,
+        &:hover {
+            background: var(--highlight-color, gold);
+        }
+    }
+}

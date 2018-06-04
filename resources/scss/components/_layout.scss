@@ -1,0 +1,27 @@
+// Global site width class
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+// Global main area styles
+.main {
+    background: var(--light-color, whitesmoke);
+    padding-top: 30px;
+
+    &--2cols {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.main__left {
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.05);
+    padding: 50px;
+}
+
+.main__right {
+    padding: 50px;
+}

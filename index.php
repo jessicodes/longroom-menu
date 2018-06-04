@@ -6,34 +6,35 @@
     include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
   ?>
   <meta charset="UTF-8">
-  <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" media="screen" href="/resources/css/CSS-layout.css" type="text/css" />
+  <link rel="stylesheet" media="screen" href="/resources/css/layout.css" type="text/css" />
 </head>
 <body>
 
-<div id="app">
-  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+<div id="app" class="layout">
 
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <header class="header">
+    <div class="container header__container">
 
-    <router-link class="navbar-brand" :to="{ name: 'BuildMenu' }">Long Room</router-link>
+      <div class="logo">
+        <router-link class="navbar-brand" :to="{ name: 'BuildMenu' }"><img src="/resources/images/LongRoomLogo.png" alt="Long Room Chicago" class="logo__image"></router-link>
+      </div>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link class="nav-link" :to="{ name: 'BuildMenu' }">Current Menu</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" :to="{ name: 'AddBeer' }">Add Beer</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" :to="{ name: 'AddBrewery' }">Add Brewery</router-link>
-        </li>
-      </ul>
+      <nav class="navigation">
+        <ul class="navigation__items">
+          <li class="navigation__item">
+            <router-link class="navigation__link" :to="{ name: 'BuildMenu' }">Current Menu</router-link>
+          </li>
+          <li class="navigation__item">
+            <router-link class="navigation__link" :to="{ name: 'AddBeer' }">Add Beer</router-link>
+          </li>
+          <li class="navigation__item">
+            <router-link class="navigation__link" :to="{ name: 'AddBrewery' }">Add Brewery</router-link>
+          </li>
+        </ul>
+      </nav>
+
     </div>
-  </nav>
+  </header>
 
   <router-view />
 
@@ -41,7 +42,7 @@
 
 <!-- ADD A BEER -->
 <template id="add-beer">
-  <div class="container">
+  <main class="container">
 
     <h1 v-if="beer.id">Edit Beer</h1>
     <h1 v-else>Add a Beer</h1>
@@ -84,13 +85,13 @@
       <div class="alert alert-success" role="alert">Success!</div>
       <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Beer</button>
     </div>
-  </div>
+  </main>
 </template>
 <!-- ADD ADD A BEER -->
 
 <!-- ADD BREWERY -->
 <template id="add-brewery">
-  <div class="container">
+  <main class="container">
     <h1>Add Brewery</h1>
     <div v-if="!postStatus">
       <form id="form" method="post" v-on:submit.prevent="validateForm">
@@ -114,15 +115,15 @@
       <div class="alert alert-success" role="alert">The brewery was successfully added.</div>
       <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Brewery</button>
     </div>
-  </div>
+  </main>
 </template>
 <!-- END ADD A BREWERY -->
 
 <!-- BUILD YOUR MENU -->
 <template id="build-menu">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-8">
+  <main class="container main main--2cols">
+    <div class="main__left">
+      <div class="beerList">
 
         <h1>Beer Menu</h1>
 
@@ -134,48 +135,84 @@
         <p>Displaying {{ filteredBeers.length }} beers, filtered by <strong>{{ search }}</strong></p>
 
         <div class="panel-heading"><i v-show="loading">...Loading beers...</i></div>
-        <div v-for="beer in filteredBeers" class="beerCard">
-          <div class="row"> <!--align-items-center-->
-            <div class="col-8">
-              <h4>{{ beer.brewery.label }}</h4>
-              <h6>{{ beer.name }}</h6>
-              {{ beer.description }}
-              ----
-              {{ beer.style.label }}
-              ----
-              {{ beer.glassware.label }}
-            </div>
-            <div class="col-2">
+
+        <section class="beerCards">
+          <div class="listTitles">
+            <div class="listTitle listTitle--large">Draft<span>Detailed</span></div>
+            <div class="listTitle listTitle--small">Type</div>
+            <div class="listTitle listTitle--small">From</div>
+            <div class="listTitle listTitle--small">Served</div>
+            <div class="listTitle listTitle--small">ABV</div>
+            <div class="listTitle listTitle--small">Price</div>
+          </div>
+          <article v-for="beer in filteredBeers" class="beerCard">
+            <header class="beerCard__header">
+              <h4 class="beerCard__brewery">{{ beer.brewery.label }}</h4>
+            </header>
+            <div class="beerCard__col beerCard__col--1">
+              <h6 class="beerCard__name">{{ beer.name }}</h6>
+              <p class="beerCard__description">{{ beer.description }}</p>
               <router-link :to="{ name: 'EditBeer', params: { id: beer.id }}"><i class="fa fa-pencil-square-o"></i></router-link>
-            </div>
-            <div class="col-2">
               <a class="addBeer" v-on:click="addBeer(beer)"><i class="fa fa-plus-square-o"></i></a>
             </div>
-          </div>
-        </div>
+            <div class="beerCard__col beerCard__col--2">
+              <span class="beerCard__style">{{ beer.style.label }}</span>
+            </div>
+            <div class="beerCard__col beerCard__col--3">
+              <span class="beerCard__location">{{ beer.brewery.location }}</span>
+            </div>
+            <div class="beerCard__col beerCard__col--4">
+              <span class="beerCard__glassware">{{ beer.glassware.label }}</span>
+            </div>
+            <div class="beerCard__col beerCard__col--5">
+              <span class="beerCard__abv">{{ beer.abv }}%</span>
+            </div>
+            <div class="beerCard__col beerCard__col--6">
+              <span class="beerCard__price">{{ beer.price }}$12</span>
+            </div>
+          </article>
+        </section>
 
       </div>
-      <div class="col-12 col-md-4">
+    </div>
+
+    <div class="main__right">
+      <aside class="activeMenu">
 
         <div class="activeMenu-wrapper">
-          <h3>Today's Menu</h3>
+          <h3 class="activeMenu__title listTitle listTitle--large">Draft<span>List</span></h3>
           <div class="activeMenu">
 
-            <draggable class="dragArea" v-bind:list="activeBeers" v-bind:options="{sort: true, draggable: '.activeMenu-item'}" v-on:change="draggableUpdateDrop" v-bind:move="draggableMove">
-              <article v-for="(beer, index) in activeBeers" class="activeMenu-item">
-                <p>{{ beer.brewery.label }} <strong>{{ beer.name }}</strong>
+            <draggable class="dragArea" v-bind:list="activeBeers" v-bind:options="{sort: true, draggable: '.activeBeer'}" v-on:change="draggableUpdateDrop" v-bind:move="draggableMove">
+              <article v-for="(beer, index) in activeBeers" class="activeBeer">
+                <div class="activeBeer__col activeBeer__col--1">
+                  <span class="activeBeer__index">{{ index + 1 }}</span>
+                  <span class="activeBeer__brewery">{{ beer.brewery.label }}</span>
+                </div>
+                <div class="activeBeer__col activeBeer__col--2">
+                  <span class="activeBeer__beer">{{ beer.name }} <span>{{ beer.price }}$6</span></span>
+                </div>
+                <div class="activeBeer__col activeBeer__col--3">
+                  <span class="activeBeer__glassIcon">***</span>
+                </div>
+                <div class="activeBeer__col activeBeer__col--4">
                   <a class="removeBeer" v-on:click="removeBeer(index)"><i class="fa fa-minus"></i></a>
-                </p>
+                </div>
               </article>
             </draggable>
 
           </div>
         </div>
-      </div>
+      </aside>
     </div>
-  </div>
+
+  </main>
 </template>
 <!-- END BUILD YOUR MENU -->
+
+
+<!-- Typekit / Fonts -->
+<link rel="stylesheet" href="https://use.typekit.net/xln1phm.css">
 
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>

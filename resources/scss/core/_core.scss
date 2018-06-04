@@ -1,0 +1,27 @@
+
+// Default element styles
+html {
+    font-size: 62.5%; // 10px
+}
+
+body {
+    color: var(--dark-color, black);
+    font-size: 1.6rem; // 16px
+    line-height: (24/16);
+    font-family: var(--default-font, serif);
+}
+
+a {
+    @include fade();
+}
+
+strong, b {
+    font-weight: 700;
+}
+
+h1 {
+    @include primary-font();
+    font-size: 5rem; // 50px
+    line-height: normal;
+    margin: 0 0 3rem;
+}
