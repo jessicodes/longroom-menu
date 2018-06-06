@@ -3,17 +3,17 @@
     margin: 4rem 0 0;
 
     // vars to ensure title bar and beerCards have same columns
-    --grid-columns: 10fr 3fr 4fr 2fr 1fr 1fr;
-    --grid-gap: 1rem;
+    --grid-columns: 7fr 3fr 3fr 2fr 1fr 1fr;
+    --grid-gap: 1.5rem;
 }
 // /end Beer List Wrapper
 
 // Title Bar
 .listTitles {
-    border-bottom: double var(--dark-color) 4px;
+    border-bottom: double $dark-color 4px;
     display: grid;
     grid-template-columns: var(--grid-columns, repeat(6fr));
-    grid-column-gap: var(--grid-gap, 0.5rem);
+    grid-column-gap: var(--grid-gap, 1rem);
     align-items: end;
     padding: 0 1rem 1rem;
 }
@@ -21,20 +21,8 @@
 .listTitle {
     @include primary-font();
     line-height: 1;
-
-    &--large {
-        font-size: 2.4rem;
-
-        span {
-            @include default-font();
-            font-size: 1.6rem;
-        }
-    }
-
-    &--small {
-        letter-spacing: normal;
-        font-size: 1.1rem;
-    }
+    letter-spacing: normal;
+    font-size: 1.1rem;
 }
 // /end Title Bar
 
@@ -45,7 +33,7 @@
     cursor: pointer;
     display: grid;
     grid-template-columns: var(--grid-columns, repeat(6fr));
-    grid-column-gap: var(--grid-gap, 0.5rem);
+    grid-column-gap: var(--grid-gap, 1rem);
     padding: 1.5rem;
     margin: 2rem 0 0;
     @include fade();
@@ -57,24 +45,12 @@
     }
 
     &:hover {
-        box-shadow: 0 0 0 5px var(--highlight-color, gold);
+        box-shadow: 0 0 0 5px $highlight-color;
     }
 
     // Type Styles
-    &__brewery {
-        @include default-font();
-        font-size: 1.8rem;
-        margin: 0;
-    }
-
-    &__name {
-        @include primary-font();
-        font-size: 1.8rem;
-        margin: 0;
-    }
-
     &__description {
-        font-family: var(--primary-font, sans-serif);
+        font-family: $paragraph-font;
         font-size: 1.6rem;
         line-height: normal;
         margin: 0;
@@ -84,7 +60,7 @@
     &__location,
     &__glassware,
     &__abv {
-        @include default-font();
+        @include secondary-font();
         font-size: 1.2rem;
     }
 

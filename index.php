@@ -140,22 +140,22 @@
 
       <section class="beerCards">
         <div class="listTitles">
-          <div class="listTitle listTitle--large">Draft<span>Detailed</span></div>
-          <div class="listTitle listTitle--small">Type</div>
-          <div class="listTitle listTitle--small">From</div>
-          <div class="listTitle listTitle--small">Served</div>
-          <div class="listTitle listTitle--small">ABV</div>
-          <div class="listTitle listTitle--small">Price</div>
+          <h2>Draft<span>Detailed</span></h2>
+          <div class="listTitle">Type</div>
+          <div class="listTitle">From</div>
+          <div class="listTitle">Served</div>
+          <div class="listTitle">ABV</div>
+          <div class="listTitle">Price</div>
         </div>
-        <article v-for="beer in filteredBeers" class="beerCard">
+        <article v-for="beer in filteredBeers" class="beerCard" v-on:click="addBeer(beer)">
+
           <header class="beerCard__header">
-            <h4 class="beerCard__brewery">{{ beer.brewery.label }}</h4>
+            <h3>{{ beer.brewery.label }}</h3>
           </header>
           <div class="beerCard__col beerCard__col--1">
-            <h6 class="beerCard__name">{{ beer.name }}</h6>
+            <h4>{{ beer.name }}</h4>
             <p class="beerCard__description">{{ beer.description }}</p>
             <router-link :to="{ name: 'EditBeer', params: { id: beer.id }}"><i class="fa fa-pencil-square-o"></i></router-link>
-            <a class="addBeer" v-on:click="addBeer(beer)"><i class="fa fa-plus-square-o"></i></a>
           </div>
           <div class="beerCard__col beerCard__col--2">
             <span class="beerCard__style">{{ beer.style.label }}</span>
@@ -180,11 +180,18 @@
       <aside class="activeMenu">
 
         <div class="activeMenu-wrapper">
-          <h3 class="activeMenu__title listTitle listTitle--large">Draft<span>List</span></h3>
+          <h2 class="activeMenu__title">Draft<span>List</span></h2>
           <div class="activeMenu">
 
             <draggable class="dragArea" v-bind:list="activeBeers" v-bind:options="{sort: true, draggable: '.activeBeer'}" v-on:change="draggableUpdateDrop" v-bind:move="draggableMove">
               <article v-for="(beer, index) in activeBeers" class="activeBeer">
+                <div class="editOptions">
+                  <ul>
+                    <li><router-link :to="{ name: 'EditBeer', params: { id: beer.brewery.id }}">Edit<br />Brewery</router-link></li>
+                    <li><router-link :to="{ name: 'EditBeer', params: { id: beer.id }}">Edit<br />Beer</router-link></li>
+                    <li><a class="removeBeer" v-on:click="removeBeer(index)"><i class="fa fa-minus"></i></a></li>
+                  </ul>
+                </div>
                 <div class="activeBeer__col activeBeer__col--1">
                   <span class="activeBeer__index">{{ index + 1 }}</span>
                   <span class="activeBeer__brewery">{{ beer.brewery.label }}</span>
@@ -193,16 +200,16 @@
                   <span class="activeBeer__beer">{{ beer.name }} <span>{{ beer.price }}$6</span></span>
                 </div>
                 <div class="activeBeer__col activeBeer__col--3">
-                  <span class="activeBeer__glassIcon">***</span>
-                </div>
-                <div class="activeBeer__col activeBeer__col--4">
-                  <a class="removeBeer" v-on:click="removeBeer(index)"><i class="fa fa-minus"></i></a>
+                  <span class="activeBeer__glassIcon">{{ beer.glassware.icon }}</span>
                 </div>
               </article>
             </draggable>
 
           </div>
         </div>
+
+        <a href="/print.php" class="button">Print Menus</a>
+
       </aside>
     </div>
 

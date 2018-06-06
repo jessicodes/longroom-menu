@@ -5,14 +5,15 @@ html {
 }
 
 body {
-    color: var(--dark-color, black);
+    color: $dark-color;
     font-size: 1.6rem; // 16px
     line-height: (24/16);
-    font-family: var(--default-font, serif);
+    font-family: $paragraph-font;
 }
 
 a {
     @include fade();
+    outline: none !important;
 }
 
 strong, b {
@@ -20,8 +21,41 @@ strong, b {
 }
 
 h1 {
-    @include primary-font();
-    font-size: 5rem; // 50px
+    color: #fff;
+    font-family: $san-serif-font;
+    font-weight: 700;
+    font-size: 7rem;
     line-height: normal;
+    text-shadow:
+        -1px -1px 0 $dark-color,
+        1px -1px 0 $dark-color,
+        -1px 1px 0 $dark-color,
+        1px 1px 0 $dark-color;
+    text-transform: uppercase;
     margin: 0 0 3rem;
+}
+
+h2 {
+    @include primary-font();
+    font-size: 2.4rem;
+    line-height: 1;
+
+    span {
+        @include secondary-font();
+        font-size: 1.6rem;
+    }
+}
+
+h3 {
+    @include secondary-font();
+    font-size: 1.8rem;
+    line-height: normal;
+    margin: 0;
+}
+
+h4 {
+    @include primary-font();
+    font-size: 1.8rem;
+    line-height: normal;
+    margin: 0;
 }

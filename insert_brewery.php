@@ -30,6 +30,9 @@ $result['error']  = false;
 if ($id){
   $result['message']  = "Posted Values => ".$name."-".$location;
   $result['error']  = false;
+
+  // Update JSON of all beers
+  include_once($_SERVER['DOCUMENT_ROOT']."/create_breweries_json.php");
 }
 else {
   $result['error']  = 'Form submission failed.';

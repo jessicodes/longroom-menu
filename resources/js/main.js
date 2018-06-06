@@ -256,3 +256,29 @@ var router = new VueRouter({
 // Create vue instance and mount onto #app
 var vue = new Vue({router});
 var app = vue.$mount('#app');
+
+
+var print = new Vue({
+  el: '#print',
+  data: {
+    message: 'All Tasks',
+    activeBeers: [],
+  },
+  mounted() {
+    this.populateMenu();
+  },
+  methods: {
+    populateMenu() {
+      axios.get('/get_menu.php').then(response => {
+        if (response.data.error === false) {
+          this.activeBeers = response.data.beers;
+          console.log('success', response.data.message)
+        } else {
+          console.log('error', response.data.error)
+        }
+      }).catch(error => {
+        console.log(error.response)
+      });
+    }
+  }
+});

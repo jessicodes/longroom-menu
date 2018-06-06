@@ -3,17 +3,24 @@
  * Site wide variables
  */
 
-:root {
-    // fonts
-    --primary-font: "nimbus-sans",sans-serif;
-    --default-font: Georgia, "Times New Roman", serif;
+/**
+ * Site Fonts
+ */
 
-    // colors
-    --highlight-color: #AD974F;
-    --highlight-alt-color: #8E793E;
-    --dark-color: #231f20;
-    --light-color: #eaeaea;
-}
+$san-serif-font: Eyechart, sans-serif;
+$serif-font: VoltaT, Georgia, "Times New Roman", serif;
+$paragraph-font: HTF30-JuniorWelterwt, serif;
+$icon-font: icomoon;
+
+/**
+ * Site Colors
+ */
+
+$highlight-color: #AD974F;
+$highlight-alt-color: #8E793E;
+$dark-gray-color: #231f20;
+$dark-color: #000;
+$light-color: #eaeaea;
 
 /**
  * Screen Sizes (stolen from BS4
@@ -34,16 +41,16 @@ $screen-xl-min: 1200px;
 
 // Headings, ect.
 @mixin primary-font() {
-    font-family: var(--primary-font, sans-serif);
+    font-family: $san-serif-font;
     font-style: normal;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.14em;
 }
 
 // Default font style
-@mixin default-font() {
-    font-family: var(--default-font, serif);
+@mixin secondary-font() {
+    font-family: $serif-font;
     font-style: italic;
     font-weight: 700;
     text-transform: none;

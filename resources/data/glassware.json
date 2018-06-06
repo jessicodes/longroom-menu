@@ -1,1 +1,1 @@
-[{"id":"1","name":"Tulip","added":null,"updated":null},{"id":"2","name":"Pint","added":null,"updated":null},{"id":"3","name":"Custom","added":null,"updated":null},{"id":"4","name":"Stein","added":null,"updated":null}]
+[{"id":"1","name":"Pint","icon_letter":"p"},{"id":"3","name":"Goblet","icon_letter":"g"},{"id":"4","name":"Snifter","icon_letter":"s"},{"id":"5","name":"Custom","icon_letter":"c"}]

@@ -36,6 +36,7 @@ if (!empty($beer_ids)) {
       'glassware' => array(
         'id' => $beer->glassware["id"],
         'label' => $beer->glassware["name"],
+        'icon' => $beer->glassware["icon_letter"],
       ),
       "abv" => $beer['abv'],
       "description" => $beer['description'],

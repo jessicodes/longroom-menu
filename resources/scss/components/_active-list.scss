@@ -3,35 +3,40 @@
  */
 
 .activeMenu__title {
-    border-bottom: double var(--dark-color) 4px;
-    padding: 0 0 1rem;
+    border-bottom: double var(--dark-color, $dark-color) 4px;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 // Each beer item
 .activeBeer {
-    cursor: pointer;
+    cursor: pointer !important;
     display: grid;
-    grid-template-columns: 30fr 50fr 1fr 1fr;
+    grid-template-columns: 15fr 20fr 1fr;
     grid-column-gap: 1rem;
     align-items: start;
-    margin: 2rem 0;
+    padding: 1rem 0;
     position: relative;
     font-size: 1.2rem;
     line-height: (16/12);
+    overflow: hidden;
 
     // index
     .activeBeer__index {
-        @include default-font;
-        color: var(--highlight-color, gold);
+        @include secondary-font();
+        color: $highlight-color;
         font-size: 2rem;
+        line-height: 3rem;
         opacity: 0.4;
         position: absolute;
         left: 0;
-        top: -0.7rem;
+        top: 0;
     }
 
     // columns
     &__col {
+        position: relative;
+
         &--1 {
             text-align: right;
         }
@@ -44,7 +49,7 @@
 
     // type styles
     &__brewery {
-        @include default-font();
+        @include secondary-font();
     }
 
     &__beer {
@@ -53,5 +58,77 @@
         span {
             font-size: 1rem;
         }
+    }
+
+    &__glassIcon {
+        font-family: $icon-font;
+        font-size: 24px;
+        top: -0.5rem;
+        right: 0;
+        position: absolute;
+    }
+}
+
+.editOptions {
+    background: $highlight-color;
+    font-family: $san-serif-font;
+    font-size: 1.1rem;
+    position: absolute;
+    left: -11.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.25s ease;
+    transition-delay: 0s;
+
+    .activeBeer.sortable-ghost &,
+    .activeBeer.sortable-chosen & {
+        display: none;
+    }
+    .activeBeer:hover & {
+        left: 0;
+        transition-delay: 0.75s;
+    }
+
+    ul {
+        display: flex;
+    }
+
+    li {
+        display: flex;
+
+        &:nth-of-type(1) a {
+            background: $highlight-color;
+
+            &:hover {
+                background-color: darken($highlight-color, 5%);
+            }
+        }
+
+        &:nth-of-type(2) a {
+            background: $highlight-alt-color;
+
+            &:hover {
+                background-color: darken($highlight-alt-color, 5%);
+            }
+        }
+
+        &:nth-of-type(3) a {
+            background: $dark-color;
+
+            &:hover {
+                background-color: #000;
+            }
+        }
+    }
+
+    a {
+        color: #fff;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        text-align: center;
+        padding: 0.5rem;
+        text-decoration: none;
+        text-transform: uppercase;
     }
 }
