@@ -39,6 +39,7 @@ if (!empty($beer_ids)) {
         'icon' => $beer->glassware["icon_letter"],
       ),
       "abv" => $beer['abv'],
+      "price" => $beer['price'],
       "description" => $beer['description'],
     );
   }

@@ -25,6 +25,7 @@ $data = array(
   "style_id" => $data['style_id'],
   "glassware_id" => $data['glassware_id'],
   "abv" => $data['abv'],
+  "price" => $data['price'],
   "description" => $data['description'],
   "updated" => new NotORM_Literal("NOW()")
 );

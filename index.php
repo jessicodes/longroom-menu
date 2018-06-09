@@ -74,6 +74,10 @@
               Do not include %
             </small>
           </div>
+          <div class="form-group">
+            <label for="price">Price</label><br />
+            <input type="number" class="form-control" name="price" id="price" v-model="beer.price" min="0" step=".01" />
+          </div>
           <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingDescription }">
             <label for="description">Description</label><br />
             <textarea class="form-control" name="description" id="description" rows="5" v-model="beer.description"></textarea>
@@ -147,15 +151,13 @@
           <div class="listTitle">ABV</div>
           <div class="listTitle">Price</div>
         </div>
-        <article v-for="beer in filteredBeers" class="beerCard" v-on:click="addBeer(beer)">
-
+        <article v-for="beer in filteredBeers" class="beerCard" v-on:click="addBeer(beer)" title="Add Beer!">
           <header class="beerCard__header">
             <h3>{{ beer.brewery.label }}</h3>
           </header>
           <div class="beerCard__col beerCard__col--1">
             <h4>{{ beer.name }}</h4>
             <p class="beerCard__description">{{ beer.description }}</p>
-            <router-link :to="{ name: 'EditBeer', params: { id: beer.id }}"><i class="fa fa-pencil-square-o"></i></router-link>
           </div>
           <div class="beerCard__col beerCard__col--2">
             <span class="beerCard__style">{{ beer.style.label }}</span>
@@ -170,8 +172,19 @@
             <span class="beerCard__abv">{{ beer.abv }}%</span>
           </div>
           <div class="beerCard__col beerCard__col--6">
-            <span class="beerCard__price">{{ beer.price }}$12</span>
+            <span class="beerCard__price">${{ beer.price }}</span>
           </div>
+
+          <!-- Edit Options -->
+          <div class="edit__options">
+            <ul>
+              <li><router-link :to="{ name: 'EditBeer', params: { id: beer.id }}">Edit Beer</router-link></li>
+              <li><router-link :to="{ name: 'EditBeer', params: { id: beer.brewery.id }}">Edit Brewery</router-link></li>
+            </ul>
+          </div>
+          <i class="fa fa-pencil js-show-edit-options edit__icon" aria-hidden="true"></i>
+          <!-- /Edit Options -->
+
         </article>
       </section>
     </div>
@@ -185,13 +198,18 @@
 
             <draggable class="dragArea" v-bind:list="activeBeers" v-bind:options="{sort: true, draggable: '.activeBeer'}" v-on:change="draggableUpdateDrop" v-bind:move="draggableMove">
               <article v-for="(beer, index) in activeBeers" class="activeBeer">
-                <div class="editOptions">
+
+                <!-- Edit Options -->
+                <div class="edit__options">
                   <ul>
-                    <li><router-link :to="{ name: 'EditBeer', params: { id: beer.brewery.id }}">Edit<br />Brewery</router-link></li>
-                    <li><router-link :to="{ name: 'EditBeer', params: { id: beer.id }}">Edit<br />Beer</router-link></li>
-                    <li><a class="removeBeer" v-on:click="removeBeer(index)"><i class="fa fa-minus"></i></a></li>
+                    <li><router-link :to="{ name: 'EditBeer', params: { id: beer.id }}">Edit Beer</router-link></li>
+                    <li><router-link :to="{ name: 'EditBeer', params: { id: beer.brewery.id }}">Edit Brewery</router-link></li>
+                    <li><a v-on:click="removeBeer(index)">Remove Beer</a></li>
                   </ul>
                 </div>
+                <i class="fa fa-pencil js-show-edit-options edit__icon" aria-hidden="true"></i>
+                <!-- /Edit Options -->
+
                 <div class="activeBeer__col activeBeer__col--1">
                   <span class="activeBeer__index">{{ index + 1 }}</span>
                   <span class="activeBeer__brewery">{{ beer.brewery.label }}</span>
@@ -242,6 +260,7 @@
 
 <!-- Custom Scripts -->
 <script src="/resources/js/main.js"></script>
+<script src="/resources/js/actions.js"></script>
 
 </body>
 </html>

@@ -160,6 +160,7 @@ const AddBeer = {
         'style_id': this.beer.style.id,
         'glassware_id': this.beer.glassware.id,
         'abv': this.beer.abv,
+        'price': this.beer.price,
         'description': this.beer.description
       }).then(response => {
         if (response.data.error === false) {

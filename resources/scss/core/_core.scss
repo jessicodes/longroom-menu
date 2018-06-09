@@ -13,11 +13,31 @@ body {
 
 a {
     @include fade();
+    color: $dark-color;
     outline: none !important;
+    text-decoration: none;
 }
 
 strong, b {
     font-weight: 700;
+}
+
+.button {
+    @include primary-font();
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1;
+    border-radius: 20px;
+    color: #fff;
+    margin: 2rem 0;
+    padding: 15px 40px;
+    text-align: center;
+    text-decoration: none;
+    background: $highlight-color;
+
+    &:hover {
+        background: $highlight-alt-color;
+    }
 }
 
 h1 {

@@ -30,6 +30,7 @@ foreach ($beers as $beer) {
       'icon' => $beer->glassware["icon_letter"],
     ),
     "abv" => $beer['abv'],
+    "price" => $beer['price'],
     "description" => $beer['description'],
   );
 }
