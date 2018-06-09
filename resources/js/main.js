@@ -262,8 +262,7 @@ var app = vue.$mount('#app');
 var print = new Vue({
   el: '#print',
   data: {
-    message: 'All Tasks',
-    activeBeers: [],
+    activeBeers: []
   },
   mounted() {
     this.populateMenu();

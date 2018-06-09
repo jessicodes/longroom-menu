@@ -20,30 +20,20 @@
 
       <draggable class="dragArea" v-bind:list="activeBeers" v-bind:options="{sort: true, draggable: '.activeBeer'}" v-on:change="draggableUpdateDrop" v-bind:move="draggableMove">
         <article v-for="(beer, index) in activeBeers" class="activeBeer">
-          <div class="editOptions">
-            <ul>
-              <li><router-link :to="{ name: 'EditBeer', params: { id: beer.brewery.id }}">Edit<br />Brewery</router-link></li>
-              <li><router-link :to="{ name: 'EditBeer', params: { id: beer.id }}">Edit<br />Beer</router-link></li>
-              <li><a class="removeBeer" v-on:click="removeBeer(index)"><i class="fa fa-minus"></i></a></li>
-            </ul>
-          </div>
           <div class="activeBeer__col activeBeer__col--1">
-            <span class="activeBeer__index">{{ index + 1 }}</span>
             <span class="activeBeer__brewery">{{ beer.brewery.label }}</span>
           </div>
           <div class="activeBeer__col activeBeer__col--2">
-            <span class="activeBeer__beer">{{ beer.name }} <span>{{ beer.price }}$6</span></span>
+            <span class="activeBeer__beer">{{ beer.name }} <span>${{ beer.price }}</span></span>
           </div>
           <div class="activeBeer__col activeBeer__col--3">
-            <span class="activeBeer__glassIcon">***</span>
+            <span class="activeBeer__glassIcon">{{ beer.glassware.icon }}</span>
           </div>
         </article>
       </draggable>
 
     </div>
   </div>
-
-{{ message }}
 
 </div>
 
