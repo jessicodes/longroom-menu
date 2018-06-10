@@ -41,6 +41,7 @@
         &.router-link-exact-active,
         &:hover {
             background: $highlight-color;
+            color: #fff;
         }
     }
 }

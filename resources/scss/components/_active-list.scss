@@ -2,8 +2,21 @@
  * Active Beer List
  */
 
+.activeMenu {
+    margin-bottom: 2.5rem;
+
+    &.sticky {
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky;
+        position: sticky;
+        top: 15px;
+    }
+}
+
 .activeMenu__title {
-    border-bottom: double var(--dark-color, $dark-color) 4px;
+    border-bottom: double $dark-gray-color 4px;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
 }
@@ -19,6 +32,7 @@
     position: relative;
     font-size: 1.2rem;
     line-height: (16/12);
+
 
     // index
     .activeBeer__index {

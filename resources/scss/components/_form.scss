@@ -1,0 +1,69 @@
+.form-group {
+
+    label {
+        @include primary-font();
+        display: inline-block;
+        font-size: 1.4rem;
+        line-height: 1;
+        margin-bottom: 0.8rem;
+    }
+
+    textarea.form-control,
+    input.form-control,
+    .v-select .dropdown-toggle {
+        border: 1px $dark-gray-color solid;
+        border-radius: 5px;
+        color: $body-color;
+        font-family: $serif-font;
+        font-style: italic;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 10px 20px;
+        margin: 0 0 2.5rem;
+        height: auto;
+        width: 100%;
+    }
+
+    .v-select .dropdown-toggle {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .v-select .selected-tag {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .v-select .dropdown-toggle .clear,
+    .v-select .open-indicator {
+        bottom: inherit;
+        top: 50%;
+        transform: translateY(-55%);
+    }
+
+    .v-select .open-indicator {
+        transform: translateY(-30%);
+    }
+}
+
+.button {
+    @include primary-font();
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1;
+    border-radius: 20px;
+    color: #fff;
+    margin: 0;
+    padding: 15px 40px;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    background: $highlight-color;
+
+    &:hover {
+        background: $highlight-alt-color;
+    }
+}

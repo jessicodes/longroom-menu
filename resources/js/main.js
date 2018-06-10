@@ -18,6 +18,10 @@ const BuildMenu = {
     this.getBeers();
     this.populateMenu();
   },
+  updated() {
+    // @see actions.js
+    init_draft_list_sticky();
+  },
   methods: {
     draggableMove: function(evt) {
       console.log('move');
@@ -42,7 +46,7 @@ const BuildMenu = {
       axios.get('/get_menu.php').then(response => {
         if (response.data.error === false) {
           this.activeBeers = response.data.beers;
-          console.log('success', response.data.message)
+          console.log('success', response.data.message);
         } else {
           console.log('error', response.data.error)
         }

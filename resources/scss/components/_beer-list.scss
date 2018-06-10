@@ -10,7 +10,7 @@
 
 // Title Bar
 .listTitles {
-    border-bottom: double $dark-color 4px;
+    border-bottom: double $dark-gray-color 4px;
     display: grid;
     grid-template-columns: var(--grid-columns, repeat(6fr));
     grid-column-gap: var(--grid-gap, 1rem);
@@ -27,7 +27,7 @@
 // /end Title Bar
 
 // Each Beer Card Item
-.beerCard {
+.beerCard__columns {
     border-radius: 3px;
     box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.1);
     cursor: pointer;
@@ -39,14 +39,18 @@
     margin: 2rem 0 0;
     @include fade();
 
+    &:hover {
+        box-shadow: 0 0 0 5px $highlight-color;
+    }
+}
+
+.beerCard {
+    position: relative;
+
     // each col minus the heading,
     // move down a row
     &__col {
         grid-row: 2/3;
-    }
-
-    &:hover {
-        box-shadow: 0 0 0 5px $highlight-color;
     }
 
     // Type Styles
@@ -83,6 +87,7 @@
         font-size: 12px;
         line-height: 1;
         opacity: 0.04;
+        z-index: 100;
         @include fade();
 
         .beerCard & {
@@ -117,7 +122,7 @@
         line-height: 1;
         padding: 0.6rem 0;
         position: absolute;
-        z-index: 50;
+        z-index: 200;
 
         .beerCard & {
             bottom: 10px;
@@ -134,7 +139,7 @@
             padding: 0.6rem 1rem;
 
             &:hover {
-                background: $dark-color;
+                background: $dark-gray-color;
                 color: #fff;
             }
         }

@@ -15,19 +15,3 @@
  */
 @import "components/beer-list";
 @import "components/active-list";
-
-body {
-    font-family: icomoon;
-}
-
-h1 {
-    font-family: Eyechart, Serif;
-    font-weight: 700;
-    font-size: 7rem;
-    color: #fff;
-    text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-}

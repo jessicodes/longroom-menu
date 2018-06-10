@@ -13,6 +13,7 @@ $( document ).ready(function() {
 function init_show_edit_options() {
   $(document).on('click', '.js-show-edit-options', function(e) {
     e.stopPropagation();
+    e.preventDefault();
     $('.edit__options').hide();
     $(this).siblings('.edit__options').toggle();
   });
@@ -20,4 +21,17 @@ function init_show_edit_options() {
   $(document).click( function(){
     $('.edit__options').hide();
   });
+}
+
+/**
+ * Callback on vue component to add sticky class on
+ * draft menu if height is creator than the window height.
+ */
+function init_draft_list_sticky() {
+  var menuHeight = $('.activeMenu-wrapper').height();
+  console.log(menuHeight);
+  if (menuHeight > 50
+    && menuHeight <= $(window).height() ) {
+    $('.activeMenu').addClass('sticky');
+  }
 }

@@ -42,7 +42,7 @@
 
 <!-- ADD A BEER -->
 <template id="add-beer">
-  <main class="container main main--full">
+  <main class="container main main--half">
     <div class="main__content">
 
       <h1 v-if="beer.id">Edit Beer</h1>
@@ -70,9 +70,6 @@
           <div class="form-group">
             <label for="abv">ABV</label><br />
             <input type="number" class="form-control" name="abv" id="abv" v-model="beer.abv" min="0" step=".01" />
-            <small  class="form-text text-muted">
-              Do not include %
-            </small>
           </div>
           <div class="form-group">
             <label for="price">Price</label><br />
@@ -83,12 +80,12 @@
             <textarea class="form-control" name="description" id="description" rows="5" v-model="beer.description"></textarea>
             <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingDescription">This field is required.</span>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="button">Save Beer</button>
         </form>
       </div>
       <div v-if="postStatus">
         <div class="alert alert-success" role="alert">Success!</div>
-        <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Beer</button>
+        <button type="submit" class="button" v-on:click="startOver">Add Another Beer</button>
       </div>
     </div>
   </main>
@@ -97,7 +94,7 @@
 
 <!-- ADD BREWERY -->
 <template id="add-brewery">
-  <main class="container main main--full">
+  <main class="container main main--half">
     <div class="main__content">
       <h1>Add Brewery</h1>
       <div v-if="!postStatus">
@@ -110,17 +107,14 @@
           <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingLocation }">
             <label for="location">Brewery Location</label>
             <input type="text" class="form-control" name="location" id="location" v-model="location" />
-            <small  class="form-text text-muted">
-              Ex. Chicago, IL
-            </small>
             <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingLocation">This field is required.</span>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="button">Save Brewery</button>
         </form>
       </div>
       <div v-if="postStatus">
         <div class="alert alert-success" role="alert">The brewery was successfully added.</div>
-        <button type="submit" class="btn btn-primary" v-on:click="startOver">Add Another Brewery</button>
+        <button type="submit" class="button" v-on:click="startOver">Add Another Brewery</button>
       </div>
     </div>
   </main>
@@ -134,11 +128,11 @@
       <h1>Beer Menu</h1>
 
       <div class="form-group">
-        <label for="searchBeer">Search a beer</label>
+        <label for="searchBeer">Search for a beer</label>
         <input v-model="search" type="email" class="form-control" id="searchBeer" />
       </div>
 
-      <p>Displaying {{ filteredBeers.length }} beers, filtered by <strong>{{ search }}</strong></p>
+      <p>Displaying {{ filteredBeers.length }} beers</p>
 
       <div class="panel-heading"><i v-show="loading">...Loading beers...</i></div>
 
@@ -151,28 +145,31 @@
           <div class="listTitle">ABV</div>
           <div class="listTitle">Price</div>
         </div>
-        <article v-for="beer in filteredBeers" class="beerCard" v-on:click="addBeer(beer)" title="Add Beer!">
-          <header class="beerCard__header">
-            <h3>{{ beer.brewery.label }}</h3>
-          </header>
-          <div class="beerCard__col beerCard__col--1">
-            <h4>{{ beer.name }}</h4>
-            <p class="beerCard__description">{{ beer.description }}</p>
-          </div>
-          <div class="beerCard__col beerCard__col--2">
-            <span class="beerCard__style">{{ beer.style.label }}</span>
-          </div>
-          <div class="beerCard__col beerCard__col--3">
-            <span class="beerCard__location">{{ beer.brewery.location }}</span>
-          </div>
-          <div class="beerCard__col beerCard__col--4">
-            <span class="beerCard__glassware">{{ beer.glassware.label }}</span>
-          </div>
-          <div class="beerCard__col beerCard__col--5">
-            <span class="beerCard__abv">{{ beer.abv }}%</span>
-          </div>
-          <div class="beerCard__col beerCard__col--6">
-            <span class="beerCard__price">${{ beer.price }}</span>
+        <article v-for="beer in filteredBeers" class="beerCard" title="Add Beer!">
+
+          <div class="beerCard__columns" v-on:click="addBeer(beer)">
+            <header class="beerCard__header">
+              <h3>{{ beer.brewery.label }}</h3>
+            </header>
+            <div class="beerCard__col beerCard__col--1">
+              <h4>{{ beer.name }}</h4>
+              <p class="beerCard__description">{{ beer.description }}</p>
+            </div>
+            <div class="beerCard__col beerCard__col--2">
+              <span class="beerCard__style">{{ beer.style.label }}</span>
+            </div>
+            <div class="beerCard__col beerCard__col--3">
+              <span class="beerCard__location">{{ beer.brewery.location }}</span>
+            </div>
+            <div class="beerCard__col beerCard__col--4">
+              <span class="beerCard__glassware">{{ beer.glassware.label }}</span>
+            </div>
+            <div class="beerCard__col beerCard__col--5">
+              <span class="beerCard__abv">{{ beer.abv }}%</span>
+            </div>
+            <div class="beerCard__col beerCard__col--6">
+              <span class="beerCard__price">${{ beer.price }}</span>
+            </div>
           </div>
 
           <!-- Edit Options -->
@@ -259,8 +256,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.16.0/vuedraggable.min.js"></script>
 
 <!-- Custom Scripts -->
-<script src="/resources/js/main.js"></script>
 <script src="/resources/js/actions.js"></script>
+<script src="/resources/js/main.js"></script>
 
 </body>
 </html>

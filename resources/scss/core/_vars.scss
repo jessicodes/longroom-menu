@@ -19,8 +19,10 @@ $icon-font: icomoon;
 $highlight-color: #AD974F;
 $highlight-alt-color: #8E793E;
 $dark-gray-color: #231f20;
-$dark-color: #000;
+$gray-color: #4d4d4d;
 $light-color: #eaeaea;
+
+$body-color: $gray-color;
 
 /**
  * Screen Sizes (stolen from BS4

@@ -5,39 +5,29 @@ html {
 }
 
 body {
-    color: $dark-color;
+    color: $body-color;
     font-size: 1.6rem; // 16px
     line-height: (24/16);
     font-family: $paragraph-font;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 a {
     @include fade();
-    color: $dark-color;
+    color: $highlight-color;
     outline: none !important;
     text-decoration: none;
+
+    &:hover {
+        color: $highlight-alt-color;
+    }
 }
 
 strong, b {
     font-weight: 700;
-}
-
-.button {
-    @include primary-font();
-    display: inline-block;
-    font-size: 1.6rem;
-    line-height: 1;
-    border-radius: 20px;
-    color: #fff;
-    margin: 2rem 0;
-    padding: 15px 40px;
-    text-align: center;
-    text-decoration: none;
-    background: $highlight-color;
-
-    &:hover {
-        background: $highlight-alt-color;
-    }
 }
 
 h1 {
@@ -47,10 +37,10 @@ h1 {
     font-size: 7rem;
     line-height: normal;
     text-shadow:
-        -1px -1px 0 $dark-color,
-        1px -1px 0 $dark-color,
-        -1px 1px 0 $dark-color,
-        1px 1px 0 $dark-color;
+        -1px -1px 0 $dark-gray-color,
+        1px -1px 0 $dark-gray-color,
+        -1px 1px 0 $dark-gray-color,
+        1px 1px 0 $dark-gray-color;
     text-transform: uppercase;
     margin: 0 0 3rem;
 }
