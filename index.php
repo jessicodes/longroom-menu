@@ -45,15 +45,22 @@
   <main class="container main main--half">
     <div class="main__content">
 
-      <h1 v-if="beer.id">Edit Beer</h1>
+      <h1 v-if="beer.id">Edit This Beer</h1>
       <h1 v-else>Add a Beer</h1>
 
       <div v-if="!postStatus">
+
+        <div class="errors" v-if="errors.length">
+          <b>Please correct the following error(s):</b>
+          <ul>
+            <li v-for="error in errors">{{ error }}</li>
+          </ul>
+        </div>
+
         <form id="form" method="post" v-on:submit.prevent="validateForm">
-          <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingName }">
+          <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" name="name" id="name" v-model="beer.name" />
-            <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingName">This field is required.</span>
           </div>
           <div class="form-group">
             <label for="brewery">Brewery</label><br />
@@ -75,10 +82,9 @@
             <label for="price">Price</label><br />
             <input type="number" class="form-control" name="price" id="price" v-model="beer.price" min="0" step=".01" />
           </div>
-          <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingDescription }">
+          <div class="form-group">
             <label for="description">Description</label><br />
             <textarea class="form-control" name="description" id="description" rows="5" v-model="beer.description"></textarea>
-            <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingDescription">This field is required.</span>
           </div>
           <button type="submit" class="button">Save Beer</button>
         </form>
@@ -96,18 +102,27 @@
 <template id="add-brewery">
   <main class="container main main--half">
     <div class="main__content">
-      <h1>Add Brewery</h1>
+
+      <h1 v-if="editable_id">Edit This Brewery</h1>
+      <h1 v-else>Add a Brewery</h1>
+
       <div v-if="!postStatus">
+
+        <div class="errors" v-if="errors.length">
+          <b>Please correct the following error(s):</b>
+          <ul>
+            <li v-for="error in errors">{{ error }}</li>
+          </ul>
+        </div>
+
         <form id="form" method="post" v-on:submit.prevent="validateForm">
-          <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingName }">
+          <div class="form-group">
             <label for="name">Brewery Name</label>
             <input type="text" class="form-control" name="name" id="name" v-model="name" />
-            <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingName">This field is required.</span>
           </div>
-          <div class="form-group" v-bind:class="{ 'has-warning': attemptSubmit && missingLocation }">
+          <div class="form-group">
             <label for="location">Brewery Location</label>
             <input type="text" class="form-control" name="location" id="location" v-model="location" />
-            <span id="helpBlock" class="help-block" v-if="attemptSubmit && missingLocation">This field is required.</span>
           </div>
           <button type="submit" class="button">Save Brewery</button>
         </form>
@@ -132,7 +147,7 @@
         <input v-model="search" type="email" class="form-control" id="searchBeer" />
       </div>
 
-      <p>Displaying {{ filteredBeers.length }} beers</p>
+      <p class="searchTotal">Displaying {{ filteredBeers.length }} beers</p>
 
       <div class="panel-heading"><i v-show="loading">...Loading beers...</i></div>
 
@@ -176,7 +191,7 @@
           <div class="edit__options">
             <ul>
               <li><router-link :to="{ name: 'EditBeer', params: { id: beer.id }}">Edit Beer</router-link></li>
-              <li><router-link :to="{ name: 'EditBeer', params: { id: beer.brewery.id }}">Edit Brewery</router-link></li>
+              <li><router-link :to="{ name: 'EditBrewery', params: { id: beer.brewery.id }}">Edit Brewery</router-link></li>
             </ul>
           </div>
           <i class="fa fa-pencil js-show-edit-options edit__icon" aria-hidden="true"></i>
@@ -200,7 +215,7 @@
                 <div class="edit__options">
                   <ul>
                     <li><router-link :to="{ name: 'EditBeer', params: { id: beer.id }}">Edit Beer</router-link></li>
-                    <li><router-link :to="{ name: 'EditBeer', params: { id: beer.brewery.id }}">Edit Brewery</router-link></li>
+                    <li><router-link :to="{ name: 'EditBrewery', params: { id: beer.brewery.id }}">Edit Brewery</router-link></li>
                     <li><a v-on:click="removeBeer(index)">Remove Beer</a></li>
                   </ul>
                 </div>

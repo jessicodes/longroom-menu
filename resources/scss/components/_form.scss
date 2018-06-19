@@ -67,3 +67,12 @@
         background: $highlight-alt-color;
     }
 }
+
+.errors {
+    border-left: 5px #990000 solid;
+    padding: 0 0 0 20px;
+    margin: 0 0 30px;
+    color: #990000;
+    font-size: 2rem;
+    line-height: normal;
+}

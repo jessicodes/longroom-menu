@@ -1,3 +1,9 @@
+.searchTotal {
+    @include secondary-font();
+    font-size: 1.2rem;
+    color: lighten($gray-color, 20%);
+}
+
 // Beer List Wrapper
 .beerCards {
     margin: 4rem 0 0;

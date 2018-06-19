@@ -10,33 +10,47 @@ include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
 $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON, TRUE);
 
+// Action: update vs insert
+$update_brewery_id = '';
+$action = 'insert';
+if (!empty($input['brewery_id'])) {
+  $update_brewery_id = $input['brewery_id'];
+  $action = 'update';
+}
+
 $name = $input['name'];
 $location = $input['location'];
 
 // Insert into DB
-$brewery = $db->library->brewery();
 $data = array(
   "name" => $name,
   "location" => $location,
-  "added" => new NotORM_Literal("NOW()"),
   "updated" => new NotORM_Literal("NOW()")
 );
-$brewery->insert($data);
-$id = $brewery->insert_id();
+
+if ($action == 'insert') {
+  // insert
+  $brewery = $db->library->brewery();
+  $data['added'] = new NotORM_Literal("NOW()");
+  $success = $brewery->insert($data);
+} else {
+  // update
+  $brewery = $db->library->brewery[$update_brewery_id];
+  $success = $brewery->update($data);
+}
 
 $result['message'] = '';
 $result['error']  = false;
 
-if ($id){
+if ($success){
   $result['message']  = "Posted Values => ".$name."-".$location;
   $result['error']  = false;
 
-  // Update JSON of all beers
+  // Update JSON of all breweries
   include_once($_SERVER['DOCUMENT_ROOT']."/create_breweries_json.php");
 }
 else {
   $result['error']  = 'Form submission failed.';
 }
-
 
 echo json_encode($result);
