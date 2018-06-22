@@ -17,6 +17,9 @@ var print = new Vue({
       }).catch(error => {
         console.log(error.response)
       });
+    },
+    sliceItems: function (start, end) {
+      return this.activeBeers.slice(start, end);
     }
   }
 });

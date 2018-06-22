@@ -151,7 +151,7 @@
 
       <div class="panel-heading"><i v-show="loading">...Loading beers...</i></div>
 
-      <section class="beerCards">
+      <section class="draftDetailsList">
         <div class="listTitles">
           <h2>Draft<span>Detailed</span></h2>
           <div class="listTitle">Type</div>
@@ -160,30 +160,30 @@
           <div class="listTitle">ABV</div>
           <div class="listTitle">Price</div>
         </div>
-        <article v-for="beer in filteredBeers" class="beerCard" title="Add Beer!">
+        <article v-for="beer in filteredBeers" class="draftDetail" title="Add Beer!">
 
-          <div class="beerCard__columns" v-on:click="addBeer(beer)">
-            <header class="beerCard__header">
+          <div class="draftDetail__grid" v-on:click="addBeer(beer)">
+            <header class="draftDetail__header">
               <h3>{{ beer.brewery.label }}</h3>
             </header>
-            <div class="beerCard__col beerCard__col--1">
+            <div class="draftDetail__col draftDetail__col--1">
               <h4>{{ beer.name }}</h4>
-              <p class="beerCard__description">{{ beer.description }}</p>
+              <p class="draftDetail__description">{{ beer.description }}</p>
             </div>
-            <div class="beerCard__col beerCard__col--2">
-              <span class="beerCard__style">{{ beer.style.label }}</span>
+            <div class="draftDetail__col draftDetail__col--2">
+              <span class="draftDetail__style">{{ beer.style.label }}</span>
             </div>
-            <div class="beerCard__col beerCard__col--3">
-              <span class="beerCard__location">{{ beer.brewery.location }}</span>
+            <div class="draftDetail__col draftDetail__col--3">
+              <span class="draftDetail__location">{{ beer.brewery.location }}</span>
             </div>
-            <div class="beerCard__col beerCard__col--4">
-              <span class="beerCard__glassware">{{ beer.glassware.label }}</span>
+            <div class="draftDetail__col draftDetail__col--4">
+              <span class="draftDetail__glassware">{{ beer.glassware.label }}</span>
             </div>
-            <div class="beerCard__col beerCard__col--5">
-              <span class="beerCard__abv">{{ beer.abv }}%</span>
+            <div class="draftDetail__col draftDetail__col--5">
+              <span class="draftDetail__abv">{{ beer.abv }}%</span>
             </div>
-            <div class="beerCard__col beerCard__col--6">
-              <span class="beerCard__price">${{ beer.price }}</span>
+            <div class="draftDetail__col draftDetail__col--6">
+              <span class="draftDetail__price">${{ beer.price }}</span>
             </div>
           </div>
 

@@ -13,5 +13,18 @@
 /**
  * Components
  */
-@import "components/beer-list";
-@import "components/active-list";
+@import "components/draft-details";
+@import "components/draft-list";
+
+#print {
+    width: 735px;
+}
+.page-break {
+    display: block;
+    page-break-before: always;
+}
+h1 {
+    &:nth-of-type(odd) {
+        text-align: right;
+    }
+}
