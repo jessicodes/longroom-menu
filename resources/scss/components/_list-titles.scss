@@ -1,11 +1,19 @@
 // Title Bar
 
 // wrapper
-.listTitles {
+div.listTitles {
     border-bottom: double $dark-gray-color 4px;
     display: grid;
     align-items: end;
     padding: 0 1rem 1rem;
+}
+tr.listTitles {
+    border-bottom: double $dark-gray-color 4px;
+
+    th {
+        padding-bottom: 1rem;
+        text-align: left;
+    }
 }
 
 // items

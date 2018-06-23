@@ -227,7 +227,7 @@
                   <span class="activeBeer__brewery">{{ beer.brewery.label }}</span>
                 </div>
                 <div class="activeBeer__col activeBeer__col--2">
-                  <span class="activeBeer__beer">{{ beer.name }} <span>{{ beer.price }}$6</span></span>
+                  <span class="activeBeer__beer">{{ beer.name }} <span>${{ beer.price }}</span></span>
                 </div>
                 <div class="activeBeer__col activeBeer__col--3">
                   <span class="activeBeer__glassIcon">{{ beer.glassware.icon }}</span>

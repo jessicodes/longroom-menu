@@ -29,6 +29,8 @@ function init_show_edit_options() {
  */
 function init_draft_list_sticky() {
   var menuHeight = $('.activeMenu-wrapper').height();
+  console.log(menuHeight);
+  console.log($(window).height());
   if (menuHeight > 50
     && menuHeight <= $(window).height() ) {
     $('.activeMenu').addClass('sticky');
