@@ -1,0 +1,18 @@
+// Title Bar
+
+// wrapper
+.listTitles {
+    border-bottom: double $dark-gray-color 4px;
+    display: grid;
+    align-items: end;
+    padding: 0 1rem 1rem;
+}
+
+// items
+.listTitle {
+    @include primary-font();
+    line-height: 1;
+    letter-spacing: normal;
+    font-size: 1.1rem;
+}
+// /end Title Bar

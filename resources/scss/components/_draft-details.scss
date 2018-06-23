@@ -15,20 +15,11 @@
 // /end Beer List Wrapper
 
 // Title Bar
-.listTitles {
-    border-bottom: double $dark-gray-color 4px;
-    display: grid;
-    grid-template-columns: var(--grid-columns, repeat(6fr));
-    grid-column-gap: var(--grid-gap, 1rem);
-    align-items: end;
-    padding: 0 1rem 1rem;
-}
-
-.listTitle {
-    @include primary-font();
-    line-height: 1;
-    letter-spacing: normal;
-    font-size: 1.1rem;
+.draftDetailsList {
+    .listTitles {
+        grid-template-columns: var(--grid-columns, repeat(6fr));
+        grid-column-gap: var(--grid-gap, 1rem);
+    }
 }
 // /end Title Bar
 

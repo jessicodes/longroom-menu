@@ -16,22 +16,23 @@
 
 <!--    <h3 class="activeMenu__title listTitle listTitle--large">Draft<span>List</span></h3>-->
   <div class="draftList">
-    <div class="listTitles">
-      <h2>Draft<span>List</span></h2>
-      <div class="listTitle">Brewery</div>
-      <div class="listTitle">Beer</div>
-    </div>
-    <article v-for="(beer, index) in activeBeers" class="draftListItem">
+
+    <h2 class="listTitle-col">Draft<span>List</span></h2>
+    <div class="listTitle listTitle-col listTitle-col--right">Brewery</div>
+    <div class="listTitle listTitle-col vertical-borders">Beer</div>
+    <div class="listTitle-col">&nbsp;</div>
+
+    <template v-for="(beer, index) in activeBeers">
       <div class="draftListItem__col draftListItem__col--1">
         <span class="draftListItem__brewery">{{ beer.brewery.label }}</span>
       </div>
-      <div class="draftListItem__col draftListItem__col--2">
+      <div class="draftListItem__col draftListItem__col--2 vertical-borders">
         <span class="draftListItem__beer">{{ beer.name }} <span>${{ beer.price }}</span></span>
       </div>
       <div class="draftListItem__col draftListItem__col--3">
         <span class="draftListItem__glassIcon">{{ beer.glassware.icon }}</span>
       </div>
-    </article>
+    </template>
   </div>
 
   <div class="page-break"></div>
