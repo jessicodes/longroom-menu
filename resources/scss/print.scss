@@ -15,17 +15,4 @@
  */
 @import "components/list-titles";
 @import "components/draft-details";
-@import "components/draft-list";
-
-#print {
-    width: 650px;
-}
-.page-break {
-    display: block;
-    page-break-before: always;
-}
-h1 {
-    &:nth-of-type(odd) {
-        text-align: right;
-    }
-}
+@import "components/draft-list-print";

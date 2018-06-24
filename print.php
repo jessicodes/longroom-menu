@@ -14,31 +14,27 @@
 
   <h1>DRAFT LIST</h1>
 
-  <div class="draftList">
-
-    <h2 class="listTitle-col">Draft<span>List</span></h2>
-    <div class="listTitle listTitle-col listTitle-col--right">Brewery</div>
-    <div class="listTitle listTitle-col vertical-borders">Beer</div>
-    <div class="listTitle-col">&nbsp;</div>
-
-    <template v-for="(beer, index) in activeBeers">
-      <div class="draftListItem__col draftListItem__col--1">
-        <span class="draftListItem__brewery">{{ beer.brewery.label }}</span>
-      </div>
-      <div class="draftListItem__col draftListItem__col--2 vertical-borders">
-        <span class="draftListItem__beer">{{ beer.name }} <span>${{ beer.price }}</span></span>
-      </div>
-      <div class="draftListItem__col draftListItem__col--3">
-        <span class="draftListItem__glassIcon">{{ beer.glassware.icon }}</span>
-      </div>
-    </template>
-  </div>
+  <section class="printableList printableList--draftList">
+    <table>
+      <tr class="listTitles">
+        <th class="listTitle listTitle--header"><h2>Draft<span>List</span></h2></th>
+        <th class="listTitle listTitle--brewery">Brewery</th>
+        <th class="listTitle">Beer</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr v-for="(beer, index) in activeBeers" class="draftListItem">
+        <td colspan="2" class="draftListItem__brewery">{{ beer.brewery.label }}</td>
+        <td class="draftListItem__beer">{{ beer.name }} <span>${{ beer.price }}</span></td>
+        <td class="draftListItem__glassIcon">{{ beer.glassware.icon }}</td>
+      </tr>
+    </table>
+  </section>
 
   <div class="page-break"></div>
 
   <h1>DRAFT BEER</h1>
 
-  <section class="draftDetailsList">
+  <section class="printableList printableList--draftDetailsList">
     <table>
       <tr class="listTitles">
         <th><h2>Draft<span>Detailed</span></h2></th>
@@ -67,7 +63,7 @@
 
   <h1>DRAFT BEER</h1>
 
-  <section class="draftDetailsList">
+  <section class="printableList printableList--draftDetailsList">
     <table>
       <tr class="listTitles">
         <th><h2>Draft<span>Detailed</span></h2></th>
@@ -96,7 +92,7 @@
 
   <h1>DRAFT BEER</h1>
 
-  <section class="draftDetailsList">
+  <section class="printableList printableList--draftDetailsList">
     <table>
       <tr class="listTitles">
         <th><h2>Draft<span>Detailed</span></h2></th>

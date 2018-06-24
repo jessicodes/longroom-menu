@@ -80,35 +80,3 @@
 }
 
 // /end Each Draft Detail Item
-
-// Print Rules
-#print {
-    .draftDetailsList {
-        th, td {
-            border-right: 1px dotted $dark-gray-color;
-            padding: 1rem;
-            white-space: nowrap;
-
-            &:first-of-type {
-                padding-left: 0;
-            }
-
-            &:last-of-type {
-                border-right: none;
-                padding-right: 0;
-            }
-        }
-        th {
-            padding-top: 0;
-        }
-        td {
-            padding-top: 3rem;
-            vertical-align: top;
-
-            &.draftDetail__description {
-                padding-top: 1rem;
-                white-space: normal;
-            }
-        }
-    }
-}
