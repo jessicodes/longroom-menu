@@ -3,7 +3,6 @@ Vue.component('v-select', VueSelect.VueSelect);
 // Base Url of the API
 const beerListJson = "/resources/data/beers.json";
 const breweryListJson = "/resources/data/breweries.json";
-const styleListJson = "/resources/data/styles.json";
 const glasswareListJson = "/resources/data/glassware.json";
 
 const BuildMenu = {
@@ -98,12 +97,10 @@ const AddBeer = {
     attemptSubmit: false,
     postStatus: false,
     breweryOptions: [],
-    styleOptions: [],
     glasswareOptions: []
   }),
   mounted() {
     this.populateBreweries();
-    this.populateStyles();
     this.populateGlassware();
     this.getEditableBeer();
   },
@@ -111,13 +108,6 @@ const AddBeer = {
     populateBreweries() {
       axios.get(breweryListJson).then(response => {
         this.breweryOptions = this.format_json_to_options(response.data);
-      }).catch(error => {
-        console.log(error);
-      });
-    },
-    populateStyles() {
-      axios.get(styleListJson).then(response => {
-        this.styleOptions = this.format_json_to_options(response.data);
       }).catch(error => {
         console.log(error);
       });
@@ -170,7 +160,7 @@ const AddBeer = {
         'beer_id': this.beer.id,
         'name': this.beer.name,
         'brewery_id': this.beer.brewery.id,
-        'style_id': this.beer.style.id,
+        'style': this.beer.style,
         'glassware_id': this.beer.glassware.id,
         'abv': this.beer.abv,
         'price': this.beer.price,

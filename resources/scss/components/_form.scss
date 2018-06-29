@@ -14,8 +14,7 @@
         border: 1px $dark-gray-color solid;
         border-radius: 5px;
         color: $body-color;
-        font-family: $serif-font;
-        font-style: italic;
+        font-family: $paragraph-font;
         font-size: 16px;
         line-height: 24px;
         padding: 10px 20px;
@@ -62,10 +61,17 @@
     text-align: center;
     text-decoration: none;
     background: $highlight-color;
+    margin-right: 5px;
 
     &:hover {
         background: $highlight-alt-color;
         color: #fff;
+    }
+
+    &-secondary {
+        background: transparent;
+        border: 2px $highlight-color solid;
+        color: $highlight-color;
     }
 }
 

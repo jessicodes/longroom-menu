@@ -50,7 +50,7 @@
           <h4>{{ beer.name }}</h4>
           <p>{{ beer.description }}</p>
         </td>
-        <td class="draftDetail__style">{{ beer.style.label }}</td>
+        <td class="draftDetail__style">{{ beer.style }}</td>
         <td class="draftDetail__location">{{ beer.brewery.location }}</td>
         <td class="draftDetail__glassware">{{ beer.glassware.label }}</td>
         <td class="draftDetail__abv">{{ beer.abv }}%</td>
@@ -73,13 +73,13 @@
         <th class="listTitle">ABV</th>
         <th class="listTitle">Price</th>
       </tr>
-      <tr v-for="(beer, index) in sliceItems(7,13)" class="draftDetail">
+      <tr v-for="(beer, index) in sliceItems(6,12)" class="draftDetail">
         <td class="draftDetail__description">
           <h3>{{ beer.brewery.label }}</h3>
           <h4>{{ beer.name }}</h4>
           <p>{{ beer.description }}</p>
         </td>
-        <td class="draftDetail__style">{{ beer.style.label }}</td>
+        <td class="draftDetail__style">{{ beer.style }}</td>
         <td class="draftDetail__location">{{ beer.brewery.location }}</td>
         <td class="draftDetail__glassware">{{ beer.glassware.label }}</td>
         <td class="draftDetail__abv">{{ beer.abv }}%</td>
@@ -102,13 +102,13 @@
         <th class="listTitle">ABV</th>
         <th class="listTitle">Price</th>
       </tr>
-      <tr v-for="(beer, index) in sliceItems(14,20)" class="draftDetail">
+      <tr v-for="(beer, index) in sliceItems(12,18)" class="draftDetail">
         <td class="draftDetail__description">
           <h3>{{ beer.brewery.label }}</h3>
           <h4>{{ beer.name }}</h4>
           <p>{{ beer.description }}</p>
         </td>
-        <td class="draftDetail__style">{{ beer.style.label }}</td>
+        <td class="draftDetail__style">{{ beer.style }}</td>
         <td class="draftDetail__location">{{ beer.brewery.location }}</td>
         <td class="draftDetail__glassware">{{ beer.glassware.label }}</td>
         <td class="draftDetail__abv">{{ beer.abv }}%</td>

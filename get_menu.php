@@ -29,15 +29,12 @@ if (!empty($beer_ids)) {
         'label' => $beer->brewery["name"],
         'location' => $beer->brewery["location"],
       ),
-      'style' => array(
-        'id' => $beer->style["id"],
-        'label' => $beer->style["name"],
-      ),
       'glassware' => array(
         'id' => $beer->glassware["id"],
         'label' => $beer->glassware["name"],
         'icon' => $beer->glassware["icon_letter"],
       ),
+      'style' => $beer["style"],
       "abv" => $beer['abv'],
       "price" => $beer['price'],
       "description" => $beer['description'],

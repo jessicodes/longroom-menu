@@ -67,8 +67,8 @@
             <v-select :options="breweryOptions" v-model="beer.brewery"></v-select>
           </div>
           <div class="form-group">
-            <label for="style">Beer Style</label><br />
-            <v-select :options="styleOptions" v-model="beer.style"></v-select>
+            <label for="style">Beer Style</label>
+            <input type="text" class="form-control" name="style" id="style" v-model="beer.style" />
           </div>
           <div class="form-group">
             <label for="glassware">Glassware</label><br />
@@ -91,7 +91,9 @@
       </div>
       <div v-if="postStatus">
         <div class="alert alert-success" role="alert">Success!</div>
-        <button type="submit" class="button" v-on:click="startOver">Add Another Beer</button>
+        <br />
+        <router-link :to="{ name: 'BuildMenu'}" class="button button-secondary">< Back to Menu</router-link>
+        <button type="submit" class="button" v-on:click="startOver">Add a New Beer</button>
       </div>
     </div>
   </main>
@@ -171,7 +173,7 @@
               <p class="draftDetail__description">{{ beer.description }}</p>
             </div>
             <div class="draftDetail__col draftDetail__col--2">
-              <span class="draftDetail__style">{{ beer.style.label }}</span>
+              <span class="draftDetail__style">{{ beer.style }}</span>
             </div>
             <div class="draftDetail__col draftDetail__col--3">
               <span class="draftDetail__location">{{ beer.brewery.location }}</span>

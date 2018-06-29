@@ -8,25 +8,25 @@ include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
 
 // passed data, if any
 $inputJSON = file_get_contents('php://input');
-$data = json_decode($inputJSON, TRUE);
+$beer = json_decode($inputJSON, TRUE);
 
 // Action: update vs insert
 $update_beer_id = '';
 $action = 'insert';
-if (!empty($data['beer_id'])) {
-  $update_beer_id = $data['beer_id'];
+if (!empty($beer['beer_id'])) {
+  $update_beer_id = $beer['beer_id'];
   $action = 'update';
 }
 
 // Data for DB
 $data = array(
-  "name" => $data['name'],
-  "brewery_id" => $data['brewery_id'],
-  "style_id" => $data['style_id'],
-  "glassware_id" => $data['glassware_id'],
-  "abv" => $data['abv'],
-  "price" => $data['price'],
-  "description" => $data['description'],
+  "name" => $beer['name'],
+  "brewery_id" => $beer['brewery_id'],
+  'style' => $beer["style"],
+  "glassware_id" => $beer['glassware_id'],
+  "abv" => $beer['abv'],
+  "price" => $beer['price'],
+  "description" => $beer['description'],
   "updated" => new NotORM_Literal("NOW()")
 );
 
