@@ -415,3 +415,11 @@
 [Fri Jun 29 03:00:10.275425 2018] [php7:notice] [pid 31] [client 172.30.0.1:59220] PHP Notice:  Undefined variable: beer in /var/www/html/insert_beer.php on line 25, referer: http://longroom.loc/add-beer
 [Fri Jun 29 03:02:49.247417 2018] [php7:notice] [pid 23] [client 172.30.0.1:59246] PHP Notice:  Undefined variable: beer in /var/www/html/insert_beer.php on line 25, referer: http://longroom.loc/add-beer
 [Fri Jun 29 03:02:56.135973 2018] [php7:notice] [pid 23] [client 172.30.0.1:59246] PHP Notice:  Undefined variable: beer in /var/www/html/insert_beer.php on line 25, referer: http://longroom.loc/add-beer
+[Sun Jul 01 15:49:47.754603 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sun Jul 01 15:49:47.766496 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
+[Sun Jul 01 15:49:48.589815 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sun Jul 01 15:49:48.590412 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Aug 08 21:27:28.593067 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Aug 08 21:27:28.601767 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Aug 08 21:27:29.657038 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Aug 08 21:27:29.658786 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name

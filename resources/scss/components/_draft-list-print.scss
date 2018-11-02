@@ -62,7 +62,7 @@ h1 {
                 white-space: normal;
             }
             &__glassIcon {
-                padding: 4px 0 0 0.5rem;
+                padding: 0 0 0 0.5rem;
                 vertical-align: middle;
             }
         }
@@ -88,18 +88,22 @@ h1 {
 
 // Each beer item
 td.draftListItem {
-    font-size: 1.2rem;
-    line-height: (16/12);
 
     // type styles
     &__brewery {
         @include secondary-font();
+        font-size: 1.3rem;
+        line-height: 1;
     }
 
     &__beer {
         @include primary-font();
+        font-size: 1.3rem;
+        line-height: 1;
 
         span {
+            font-family: $san-serif-font;
+            font-weight: 700;
             font-size: 1rem;
             padding-left: 20px;
         }
@@ -107,6 +111,7 @@ td.draftListItem {
 
     &__glassIcon {
         font-family: $icon-font;
-        font-size: 24px;
+        font-size: 23px;
+        line-height: 1;
     }
 }

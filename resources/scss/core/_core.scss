@@ -47,12 +47,13 @@ h1 {
 
 h2 {
     @include primary-font();
-    font-size: 2.4rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.12em;
     line-height: 1;
 
     span {
         @include secondary-font();
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 }
 
