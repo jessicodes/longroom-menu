@@ -4,7 +4,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 header("Access-Control-Allow-Origin: *");
 
 // connect to db via notorm/pdo
-include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
+include_once("db/db_connect.php");
 
 // lets get the beers!
 $beers = $db->library->beer();

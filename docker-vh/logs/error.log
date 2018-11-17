@@ -423,3 +423,16 @@
 [Wed Aug 08 21:27:28.601767 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
 [Wed Aug 08 21:27:29.657038 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
 [Wed Aug 08 21:27:29.658786 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Nov 15 22:00:56.073367 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Nov 15 22:00:56.083267 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Nov 15 22:00:57.038515 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Nov 15 22:00:57.039621 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Nov 15 22:15:42.879648 2018] [php7:warn] [pid 23] [client 172.30.0.1:53556] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/insert_beer.php:20) in /var/www/html/create_beers_json.php on line 2, referer: http://longroom.loc/add-beer
+[Thu Nov 15 22:15:42.883330 2018] [php7:warn] [pid 23] [client 172.30.0.1:53556] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/insert_beer.php:20) in /var/www/html/create_beers_json.php on line 3, referer: http://longroom.loc/add-beer
+[Thu Nov 15 22:15:42.884012 2018] [php7:warn] [pid 23] [client 172.30.0.1:53556] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/insert_beer.php:20) in /var/www/html/create_beers_json.php on line 4, referer: http://longroom.loc/add-beer
+[Thu Nov 15 22:22:54.236778 2018] [php7:warn] [pid 26] [client 172.30.0.1:53628] PHP Warning:  include_once(/db/db_connect.php): failed to open stream: No such file or directory in /var/www/html/insert_brewery.php on line 7, referer: http://longroom.loc/add-brewery
+[Thu Nov 15 22:22:54.240135 2018] [php7:warn] [pid 26] [client 172.30.0.1:53628] PHP Warning:  include_once(): Failed opening '/db/db_connect.php' for inclusion (include_path='.:/usr/local/lib/php') in /var/www/html/insert_brewery.php on line 7, referer: http://longroom.loc/add-brewery
+[Thu Nov 15 22:22:54.240917 2018] [php7:error] [pid 26] [client 172.30.0.1:53628] PHP Fatal error:  Uncaught Error: Class 'NotORM_Literal' not found in /var/www/html/insert_brewery.php:28\nStack trace:\n#0 {main}\n  thrown in /var/www/html/insert_brewery.php on line 28, referer: http://longroom.loc/add-brewery
+[Thu Nov 15 22:34:36.279527 2018] [php7:notice] [pid 20] [client 172.30.0.1:53700] PHP Notice:  Undefined variable: beers_json in /var/www/html/create_beers_json.php on line 39
+[Thu Nov 15 22:34:43.754073 2018] [php7:notice] [pid 25] [client 172.30.0.1:53704] PHP Notice:  Undefined variable: beers_json in /var/www/html/create_beers_json.php on line 39
+[Thu Nov 15 22:45:51.647623 2018] [php7:notice] [pid 20] [client 172.30.0.1:53770] PHP Notice:  Undefined offset: 37 in /var/www/html/create_beers_json.php on line 35
