@@ -48,6 +48,9 @@ if ($success){
 
   // Update JSON of all breweries
   include_once("create_breweries_json.php");
+  
+  // Update JSON of all beers
+  include_once("create_beers_json.php");
 }
 else {
   $result['error']  = 'Form submission failed.';

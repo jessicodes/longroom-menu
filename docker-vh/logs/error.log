@@ -436,3 +436,7 @@
 [Thu Nov 15 22:34:36.279527 2018] [php7:notice] [pid 20] [client 172.30.0.1:53700] PHP Notice:  Undefined variable: beers_json in /var/www/html/create_beers_json.php on line 39
 [Thu Nov 15 22:34:43.754073 2018] [php7:notice] [pid 25] [client 172.30.0.1:53704] PHP Notice:  Undefined variable: beers_json in /var/www/html/create_beers_json.php on line 39
 [Thu Nov 15 22:45:51.647623 2018] [php7:notice] [pid 20] [client 172.30.0.1:53770] PHP Notice:  Undefined offset: 37 in /var/www/html/create_beers_json.php on line 35
+[Tue Dec 04 02:42:57.408938 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Tue Dec 04 02:42:57.418076 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Dec 04 02:42:58.485414 2018] [ssl:warn] [pid 1] AH01906: 172.30.0.4:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Tue Dec 04 02:42:58.486144 2018] [ssl:warn] [pid 1] AH01909: 172.30.0.4:443:0 server certificate does NOT include an ID which matches the server name

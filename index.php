@@ -130,8 +130,9 @@
         </form>
       </div>
       <div v-if="postStatus">
-        <div class="alert alert-success" role="alert">The brewery was successfully added.</div>
-        <button type="submit" class="button" v-on:click="startOver">Add Another Brewery</button>
+        <div class="alert alert-success" role="alert">Success!</div><br />
+        <router-link :to="{ name: 'BuildMenu'}" class="button button-secondary">< Back to Menu</router-link>
+        <button type="submit" class="button" v-on:click="startOver">Add a New Brewery</button>
       </div>
     </div>
   </main>
@@ -209,7 +210,7 @@
         <div class="activeMenu-wrapper">
           <h2 class="activeMenu__title">Draft<span>List</span></h2>
           <div class="activeMenu">
-
+            <div class="panel-heading"><i v-show="activeBeersLoading">...Loading beers...</i></div>
             <draggable class="dragArea" v-bind:list="activeBeers" v-bind:options="{sort: true, draggable: '.activeBeer'}" v-on:change="draggableUpdateDrop" v-bind:move="draggableMove">
               <article v-for="(beer, index) in activeBeers" class="activeBeer">
 
@@ -257,8 +258,9 @@
 <script src="https://use.fontawesome.com/0828c6b60a.js"></script>
 
 <!-- Vue Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.5.3/vue-router.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.5.3/vue-router.min.js"></script>
 
 <!-- Vue Select -->
 <script src="https://unpkg.com/vue-select@latest"></script>

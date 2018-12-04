@@ -28,11 +28,14 @@ function init_show_edit_options() {
  * draft menu if height is creator than the window height.
  */
 function init_draft_list_sticky() {
-  var menuHeight = $('.activeMenu-wrapper').height();
-  console.log(menuHeight);
-  console.log($(window).height());
+  var menuHeight = $('.activeMenu-wrapper').height() + 50;
+  // console.log(menuHeight);
+  // console.log($(window).height());
   if (menuHeight > 50
     && menuHeight <= $(window).height() ) {
+    console.log('add sticky');
     $('.activeMenu').addClass('sticky');
+  } else {
+    $('.activeMenu').removeClass('sticky');
   }
 }

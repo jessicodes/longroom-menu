@@ -13,6 +13,7 @@
     .v-select .dropdown-toggle {
         border: 1px $dark-gray-color solid;
         border-radius: 5px;
+        box-shadow: none !important;
         color: $body-color;
         font-family: $paragraph-font;
         font-size: 16px;
@@ -23,6 +24,7 @@
         width: 100%;
     }
 
+    /*
     .v-select .dropdown-toggle {
         padding-top: 5px;
         padding-bottom: 5px;
@@ -43,6 +45,7 @@
     .v-select .open-indicator {
         transform: translateY(-30%);
     }
+    */
 }
 
 .button {

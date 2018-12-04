@@ -11,7 +11,8 @@ const BuildMenu = {
     search: '',
     beers: [],
     activeBeers: [],
-    loading: false
+    loading: false,
+    activeBeersLoading: true
   }),
   mounted() {
     this.getBeers();
@@ -45,6 +46,7 @@ const BuildMenu = {
       axios.get('/get_menu.php').then(response => {
         if (response.data.error === false) {
           this.activeBeers = response.data.beers;
+          this.activeBeersLoading = false;
         } else {
           console.log('error', response.data.error)
         }
