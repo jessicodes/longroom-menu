@@ -24,13 +24,13 @@ const BuildMenu = {
   },
   methods: {
     draggableMove: function(evt) {
-      console.log('move');
+      //console.log('move');
       // console.log(evt.draggedContext.element.name);
       // console.log(evt.draggedContext.index);
       // console.log(evt.draggedContext.futureIndex);
     },
     draggableUpdateDrop: function(e){
-      console.log('drop');
+      //console.log('drop');
       this.updateMenu();
     },
     getBeers() {

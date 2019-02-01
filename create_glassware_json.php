@@ -1,7 +1,4 @@
 <?php
-header('Content-type: application/json');
-header('Access-Control-Allow-Headers: Content-Type');
-header("Access-Control-Allow-Origin: *");
 
 // connect to db via notorm/pdo
 include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");

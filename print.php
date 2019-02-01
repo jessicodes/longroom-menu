@@ -12,7 +12,7 @@
 
 <div id="print">
 
-  <h1>DRAFT LIST</h1>
+  <img src="resources/images/DraftListTitle.jpg" title="DRAFT LIST" alt="DRAFT LIST" />
 
   <section class="printableList printableList--draftList">
     <table>
@@ -32,7 +32,7 @@
 
   <div class="page-break"></div>
 
-  <h1>DRAFT BEER</h1>
+  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" />
 
   <section class="printableList printableList--draftDetailsList">
     <table>
@@ -61,7 +61,7 @@
 
   <div class="page-break"></div>
 
-  <h1>DRAFT BEER</h1>
+  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" />
 
   <section class="printableList printableList--draftDetailsList">
     <table>
@@ -90,7 +90,7 @@
 
   <div class="page-break"></div>
 
-  <h1>DRAFT BEER</h1>
+  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" />
 
   <section class="printableList printableList--draftDetailsList">
     <table>

@@ -33,7 +33,6 @@ function init_draft_list_sticky() {
   // console.log($(window).height());
   if (menuHeight > 50
     && menuHeight <= $(window).height() ) {
-    console.log('add sticky');
     $('.activeMenu').addClass('sticky');
   } else {
     $('.activeMenu').removeClass('sticky');

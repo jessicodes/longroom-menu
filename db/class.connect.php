@@ -4,9 +4,9 @@
  */
 class connect {
 
-  protected $db_user = "root";
-  protected $db_pass = "root";
-  protected $db_host = "db";
+  protected $db_user = "longroom";
+  protected $db_pass = "palindromeL32123";
+  protected $db_host = "localhost";
 
   var $db_name = "longroom";
 
@@ -19,40 +19,9 @@ class connect {
    */
   public function __construct()
   {
+    //$this->connect_to_db();
     $pdo = new PDO("mysql:dbname=" . $this->db_name . ";host=" . $this->db_host . "", $this->db_user, $this->db_pass);
     $this->library = new NotORM($pdo);
-  }
-
-  /**
-   *   Method to connect to database
-   *   @return bool designate successful connection to db
-   */
-  function connect_to_db() {
-    if ($db = @mysql_connect( $this->db_host, $this->db_user, $this->db_pass )) {
-
-
-      // if dev require diff db
-      if (isset($_SERVER['DBNAME-DEV'])) {
-
-        $this->db_name = $_SERVER['DBNAME-DEV'];
-
-      }
-
-
-      if (mysql_select_db($this->db_name,$db)) {
-        //set utf-8
-        mysql_set_charset('utf8');
-        return $db;
-      } else {
-        // Failure
-        echo "Failure: Could not select database.<BR>";
-        // TO DO: handle failure here
-      }
-    } else {
-      // Failure
-      print("Failure: Could not connect to MySQL.<BR>");
-      // TO DO: handle failure here
-    }
   }
 
 }

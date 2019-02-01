@@ -1,10 +1,7 @@
 <?php
-header('Content-type: application/json');
-header('Access-Control-Allow-Headers: Content-Type');
-header("Access-Control-Allow-Origin: *");
 
 // connect to db via notorm/pdo
-include_once("db/db_connect.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
 
 // lets get the beers!
 $beers = $db->library->beer();
@@ -31,10 +28,6 @@ foreach ($beers as $beer) {
     "description" => $beer['description'],
   );
 }
-
-// notorm object to array
-//$beers = array_map('iterator_to_array', iterator_to_array($beers));
-//$beers = array_values($beers);
 
 // convert to json
 $beers_json = json_encode($beers_data);

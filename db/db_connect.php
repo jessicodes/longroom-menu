@@ -7,7 +7,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] ."/db/class.connect.php");
 $db = new connect();
 
 // all beers
-//    $beers = $db->library->beers();
+/*     $beers = $db->library->beers(); */
 
 // all beers, only brewery column
 //    $beers = $db->library->beers()->select("brewery");
