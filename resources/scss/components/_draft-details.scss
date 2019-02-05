@@ -55,6 +55,10 @@
     &__col {
         grid-row: 2/3;
         line-height: 1.1;
+        
+        &--6 {
+            text-align: right;
+        }
     }
 
     // Styles
