@@ -12,7 +12,7 @@
 
 <div id="print">
 
-  <img src="resources/images/DraftListTitle.jpg" title="DRAFT LIST" alt="DRAFT LIST" />
+  <img src="resources/images/DraftListTitle.jpg" title="DRAFT LIST" alt="DRAFT LIST" class="print-title align-right" />
 
   <section class="printableList printableList--draftList">
     <table>
@@ -32,7 +32,7 @@
 
   <div class="page-break"></div>
 
-  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" />
+  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title align-left" />
 
   <section class="printableList printableList--draftDetailsList">
     <table>
@@ -61,7 +61,7 @@
 
   <div class="page-break"></div>
 
-  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" />
+  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title align-right" />
 
   <section class="printableList printableList--draftDetailsList">
     <table>
@@ -90,7 +90,7 @@
 
   <div class="page-break"></div>
 
-  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" />
+  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title align-left" />
 
   <section class="printableList printableList--draftDetailsList">
     <table>
