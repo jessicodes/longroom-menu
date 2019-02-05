@@ -24,7 +24,7 @@
       </tr>
       <tr v-for="(beer, index) in activeBeers" class="draftListItem">
         <td colspan="2" class="draftListItem__brewery">{{ beer.brewery.label }}</td>
-        <td class="draftListItem__beer">{{ beer.name }} <span>${{ beer.price }}</span></td>
+        <td class="draftListItem__beer">{{ beer.name }} <span>{{ beer.price|toCurrency }}</span></td>
         <td class="draftListItem__glassIcon">{{ beer.glassware.icon }}</td>
       </tr>
     </table>
@@ -54,7 +54,7 @@
         <td class="draftDetail__location">{{ beer.brewery.location }}</td>
         <td class="draftDetail__glassware">{{ beer.glassware.label }}</td>
         <td class="draftDetail__abv">{{ beer.abv }}%</td>
-        <td class="draftDetail__price">${{ beer.price }}</td>
+        <td class="draftDetail__price">{{ beer.price|toCurrency }}</td>
       </tr>
     </table>
   </section>
@@ -83,7 +83,7 @@
         <td class="draftDetail__location">{{ beer.brewery.location }}</td>
         <td class="draftDetail__glassware">{{ beer.glassware.label }}</td>
         <td class="draftDetail__abv">{{ beer.abv }}%</td>
-        <td class="draftDetail__price">${{ beer.price }}</td>
+        <td class="draftDetail__price">{{ beer.price|toCurrency }}</td>
       </tr>
     </table>
   </section>
@@ -112,7 +112,7 @@
         <td class="draftDetail__location">{{ beer.brewery.location }}</td>
         <td class="draftDetail__glassware">{{ beer.glassware.label }}</td>
         <td class="draftDetail__abv">{{ beer.abv }}%</td>
-        <td class="draftDetail__price">${{ beer.price }}</td>
+        <td class="draftDetail__price">{{ beer.price|toCurrency }}</td>
       </tr>
     </table>
   </section>
@@ -131,6 +131,7 @@
 
 <!-- Custom Scripts -->
 <script src="/resources/js/print_vue.js"></script>
+<script src="/resources/js/filters.js"></script>
 
 </body>
 </html>

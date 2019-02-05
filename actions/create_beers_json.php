@@ -1,7 +1,7 @@
 <?php
 
 // connect to db via notorm/pdo
-include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
+include_once("../db/db_connect.php");
 
 // lets get the beers!
 $beers = $db->library->beer();
@@ -33,6 +33,6 @@ foreach ($beers as $beer) {
 $beers_json = json_encode($beers_data);
 
 // populate the json file of all beer data
-$file = fopen("resources/data/beers.json", "w") or die("Unable to open file!");
+$file = fopen("../resources/data/beers.json", "w") or die("Unable to open file!");
 fwrite($file, $beers_json);
 fclose($file);

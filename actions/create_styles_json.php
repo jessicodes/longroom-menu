@@ -4,7 +4,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 header("Access-Control-Allow-Origin: *");
 
 // connect to db via notorm/pdo
-include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
+include_once("../db/db_connect.php");
 
 $styles = $db->library->style();
 
@@ -14,6 +14,6 @@ $styles = array_values($styles);
 
 $styles_json = json_encode($styles);
 
-$file = fopen("resources/data/styles.json", "w") or die("Unable to open file!");
+$file = fopen("../resources/data/styles.json", "w") or die("Unable to open file!");
 fwrite($file, $styles_json);
 fclose($file);

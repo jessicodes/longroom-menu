@@ -43,7 +43,7 @@ const BuildMenu = {
       });
     },
     populateMenu() {
-      axios.get('/get_menu.php').then(response => {
+      axios.get('/actions/get_menu.php').then(response => {
         if (response.data.error === false) {
           this.activeBeers = response.data.beers;
           this.activeBeersLoading = false;
@@ -67,7 +67,7 @@ const BuildMenu = {
       this.updateMenu();
     },
     updateMenu() {
-      axios.post('/update_menu.php', {
+      axios.post('/actions/update_menu.php', {
         'activeBeers': this.activeBeers
       }).then(response => {
         if (response.data.error === false) {
@@ -90,7 +90,7 @@ const BuildMenu = {
   }
 };
 
-// Add a Beer
+// Add/Edit a Beer
 const AddBeer = {
   template: '#add-beer',
   data: () => ({
@@ -131,7 +131,7 @@ const AddBeer = {
     getEditableBeer(){
       var beer_id = this.$route.params.id;
       if (!isNaN(beer_id)) {
-        axios.post('/get_beer.php', {
+        axios.post('/actions/get_beer.php', {
           'beer_id': beer_id
         }).then(response => {
           this.beer = response.data.beer;
@@ -158,7 +158,7 @@ const AddBeer = {
     },
     onSubmit () {
       console.log('onsubmit');
-      axios.post('/insert_beer.php', {
+      axios.post('/actions/insert_beer.php', {
         'beer_id': this.beer.id,
         'name': this.beer.name,
         'brewery_id': this.beer.brewery.id,
@@ -186,7 +186,7 @@ const AddBeer = {
   },
 };
 
-// Add a Brewery
+// Add/Edit a Brewery
 const AddBrewery = {
   template: '#add-brewery',
   data: () => ({
@@ -204,7 +204,7 @@ const AddBrewery = {
     getEditableBrewery(){
       this.editable_id = this.$route.params.id;
       if (!isNaN(this.editable_id)) {
-        axios.post('/get_brewery.php', {
+        axios.post('/actions/get_brewery.php', {
           'brewery_id': this.editable_id
         }).then(response => {
           this.name = response.data.name;
@@ -226,7 +226,7 @@ const AddBrewery = {
       event.preventDefault();
     },
     onSubmit () {
-      axios.post('/insert_brewery.php', {
+      axios.post('/actions/insert_brewery.php', {
         'brewery_id': this.editable_id,
         'name': this.name,
         'location': this.location
