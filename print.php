@@ -12,7 +12,9 @@
 
 <div id="print">
 
-  <img src="resources/images/DraftListTitle.jpg" title="DRAFT LIST" alt="DRAFT LIST" class="print-title align-right" />
+  <div class="printableH1 align-right">
+    <img src="resources/images/DraftListTitle.jpg" title="DRAFT LIST" alt="DRAFT LIST" class="print-title" />
+  </div>
 
   <section class="printableList printableList--draftList">
     <table>
@@ -32,17 +34,19 @@
 
   <div class="page-break"></div>
 
-  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title align-left" />
-
+  <div class="printableH1 align-left">
+    <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title" />
+  </div>
+  
   <section class="printableList printableList--draftDetailsList">
     <table>
       <tr class="listTitles">
         <th><h2>Draft<span>Detailed</span></h2></th>
-        <th class="listTitle">Type</th>
-        <th class="listTitle">From</th>
-        <th class="listTitle">Served</th>
-        <th class="listTitle">ABV</th>
-        <th class="listTitle">Price</th>
+        <th class="listTitle"><span class="shrink">Type</span></th>
+        <th class="listTitle"><span class="shrink">From</span></th>
+        <th class="listTitle"><span class="shrink">Served</span></th>
+        <th class="listTitle"><span class="shrink">ABV</span></th>
+        <th class="listTitle"><span class="shrink">Price</span></th>
       </tr>
       <tr v-for="(beer, index) in sliceItems(0,6)" class="draftDetail">
         <td class="draftDetail__description">
@@ -50,28 +54,31 @@
           <h4>{{ beer.name }}</h4>
           <p>{{ beer.description }}</p>
         </td>
-        <td class="draftDetail__style">{{ beer.style }}</td>
-        <td class="draftDetail__location">{{ beer.brewery.location }}</td>
-        <td class="draftDetail__glassware">{{ beer.glassware.label }}</td>
-        <td class="draftDetail__abv">{{ beer.abv }}%</td>
-        <td class="draftDetail__price">{{ beer.price|toCurrency }}</td>
+        <td class="draftDetail__style"><span class="shrink">{{ beer.style }}</span></td>
+        <td class="draftDetail__location"><span class="shrink">{{ beer.brewery.location }}</span></td>
+        <td class="draftDetail__glassware"><span class="shrink">{{ beer.glassware.label }}</span></td>
+        <td class="draftDetail__abv"><span class="shrink">{{ beer.abv }}%</span></td>
+        <td class="draftDetail__price"><span class="shrink">{{ beer.price|toCurrency }}</span></td>
       </tr>
     </table>
   </section>
 
   <div class="page-break"></div>
 
-  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title align-right" />
-
   <section class="printableList printableList--draftDetailsList">
+  
+    <div class="printableH1 align-right">
+      <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title" />
+    </div>
+  
     <table>
       <tr class="listTitles">
         <th><h2>Draft<span>Detailed</span></h2></th>
-        <th class="listTitle">Type</th>
-        <th class="listTitle">From</th>
-        <th class="listTitle">Served</th>
-        <th class="listTitle">ABV</th>
-        <th class="listTitle">Price</th>
+        <th class="listTitle"><span class="shrink">Type</span></th>
+        <th class="listTitle"><span class="shrink">From</span></th>
+        <th class="listTitle"><span class="shrink">Served</span></th>
+        <th class="listTitle"><span class="shrink">ABV</span></th>
+        <th class="listTitle"><span class="shrink">Price</span></th>
       </tr>
       <tr v-for="(beer, index) in sliceItems(6,12)" class="draftDetail">
         <td class="draftDetail__description">
@@ -79,28 +86,30 @@
           <h4>{{ beer.name }}</h4>
           <p>{{ beer.description }}</p>
         </td>
-        <td class="draftDetail__style">{{ beer.style }}</td>
-        <td class="draftDetail__location">{{ beer.brewery.location }}</td>
-        <td class="draftDetail__glassware">{{ beer.glassware.label }}</td>
-        <td class="draftDetail__abv">{{ beer.abv }}%</td>
-        <td class="draftDetail__price">{{ beer.price|toCurrency }}</td>
+        <td class="draftDetail__style"><span class="shrink">{{ beer.style }}</span></td>
+        <td class="draftDetail__location"><span class="shrink">{{ beer.brewery.location }}</span></td>
+        <td class="draftDetail__glassware"><span class="shrink">{{ beer.glassware.label }}</span></td>
+        <td class="draftDetail__abv"><span class="shrink">{{ beer.abv }}%</span></td>
+        <td class="draftDetail__price"><span class="shrink">{{ beer.price|toCurrency }}</span></td>
       </tr>
     </table>
   </section>
 
   <div class="page-break"></div>
 
-  <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title align-left" />
+  <div class="printableH1 align-left">
+    <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title" />
+  </div>
 
   <section class="printableList printableList--draftDetailsList">
     <table>
       <tr class="listTitles">
         <th><h2>Draft<span>Detailed</span></h2></th>
-        <th class="listTitle">Type</th>
-        <th class="listTitle">From</th>
-        <th class="listTitle">Served</th>
-        <th class="listTitle">ABV</th>
-        <th class="listTitle">Price</th>
+        <th class="listTitle"><span class="shrink">Type</span></th>
+        <th class="listTitle"><span class="shrink">From</span></th>
+        <th class="listTitle"><span class="shrink">Served</span></th>
+        <th class="listTitle"><span class="shrink">ABV</span></th>
+        <th class="listTitle"><span class="shrink">Price</span></th>
       </tr>
       <tr v-for="(beer, index) in sliceItems(12,18)" class="draftDetail">
         <td class="draftDetail__description">
@@ -108,11 +117,11 @@
           <h4>{{ beer.name }}</h4>
           <p>{{ beer.description }}</p>
         </td>
-        <td class="draftDetail__style">{{ beer.style }}</td>
-        <td class="draftDetail__location">{{ beer.brewery.location }}</td>
-        <td class="draftDetail__glassware">{{ beer.glassware.label }}</td>
-        <td class="draftDetail__abv">{{ beer.abv }}%</td>
-        <td class="draftDetail__price">{{ beer.price|toCurrency }}</td>
+        <td class="draftDetail__style"><span class="shrink">{{ beer.style }}</span></td>
+        <td class="draftDetail__location"><span class="shrink">{{ beer.brewery.location }}</span></td>
+        <td class="draftDetail__glassware"><span class="shrink">{{ beer.glassware.label }}</span></td>
+        <td class="draftDetail__abv"><span class="shrink">{{ beer.abv }}%</span></td>
+        <td class="draftDetail__price"><span class="shrink">{{ beer.price|toCurrency }}</span></td>
       </tr>
     </table>
   </section>
