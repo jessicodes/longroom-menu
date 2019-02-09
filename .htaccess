@@ -1,3 +1,8 @@
+AuthType Basic
+AuthName "Restricted Content"
+AuthUserFile /etc/apache2/.htpasswd
+Require valid-user
+
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
