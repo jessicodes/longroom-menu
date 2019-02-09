@@ -8,7 +8,7 @@ var print = new Vue({
   },
   methods: {
     populateMenu() {
-      axios.get('/get_menu.php').then(response => {
+      axios.get('/actions/get_menu.php').then(response => {
         if (response.data.error === false) {
           this.activeBeers = response.data.beers;
         } else {

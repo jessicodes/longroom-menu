@@ -4,7 +4,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 header("Access-Control-Allow-Origin: *");
 
 // connect to db via notorm/pdo
-include_once($_SERVER['DOCUMENT_ROOT']."/db/db_connect.php");
+include_once("../db/db_connect.php");
 
 // passed data, if any
 $inputJSON = file_get_contents('php://input');
@@ -47,7 +47,7 @@ if ($success) {
   $result['error']  = false;
 
   // Update JSON of all beers
-  include_once($_SERVER['DOCUMENT_ROOT']."/create_beers_json.php");
+  include_once("create_beers_json.php");
 
 } else {
   $result['message']  = 'Form ' . $action . ' failed.';

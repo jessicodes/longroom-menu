@@ -80,7 +80,7 @@
           </div>
           <div class="form-group">
             <label for="price">Price</label><br />
-            <input type="number" class="form-control" name="price" id="price" v-model="beer.price" min="0" step=".01" />
+            <input type="number" class="form-control" name="price" id="price" v-model="beer.price" min="0" step="1" />
           </div>
           <div class="form-group">
             <label for="description">Description</label><br />
@@ -186,7 +186,7 @@
               <span class="draftDetail__abv">{{ beer.abv }}%</span>
             </div>
             <div class="draftDetail__col draftDetail__col--6">
-              <span class="draftDetail__price">${{ beer.price }}</span>
+              <span class="draftDetail__price">{{ beer.price|toCurrency }}</span>
             </div>
           </div>
 
@@ -230,7 +230,7 @@
                   <span class="activeBeer__brewery">{{ beer.brewery.label }}</span>
                 </div>
                 <div class="activeBeer__col activeBeer__col--2">
-                  <span class="activeBeer__beer">{{ beer.name }} <span>${{ beer.price }}</span></span>
+                  <span class="activeBeer__beer">{{ beer.name }} <span>{{ beer.price|toCurrency }}</span></span>
                 </div>
                 <div class="activeBeer__col activeBeer__col--3">
                   <span class="activeBeer__glassIcon">{{ beer.glassware.icon }}</span>
@@ -277,6 +277,7 @@
 <!-- Custom Scripts -->
 <script src="/resources/js/actions.js"></script>
 <script src="/resources/js/main.js"></script>
+<script src="/resources/js/filters.js"></script>
 
 </body>
 </html>
