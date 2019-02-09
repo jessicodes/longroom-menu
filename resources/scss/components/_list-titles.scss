@@ -11,7 +11,7 @@ tr.listTitles {
     border-bottom: double $dark-gray-color 4px;
 
     th {
-        padding-bottom: 1rem;
+        padding-bottom: 0.5rem;
         text-align: left;
     }
 }
@@ -22,9 +22,5 @@ tr.listTitles {
     line-height: 1;
     letter-spacing: normal;
     font-size: 1rem;
-    
-    &:last-of-type {
-        text-align: right;
-    }
 }
 // /end Title Bar

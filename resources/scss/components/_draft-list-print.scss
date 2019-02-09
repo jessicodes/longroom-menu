@@ -1,5 +1,5 @@
 // define vars
-$list-gap: 1rem;
+$list-gap: 0.8rem;
 
 .page-break {
     display: block;
@@ -8,14 +8,39 @@ $list-gap: 1rem;
 
 // Print Rules
 #print {
-    width: 750px;
-    padding: 0 0 0 50px;
-    //width: 620px;
-    //padding: 0 0 0 100px;
+    width: 100%;
+    padding: 0 80px;
+}
+
+.shrink {
+  display: block;
+  
+  th & {
+    transform: scale(0.7);
+  }
+  
+  td & {
+    transform: scale(0.8);
+  }
+}
+    
+img.print-title {
+  margin: 0 30px 3rem 0;
+  width: 70%;
+}
+
+.printableH1 {
+  display: block
+  
+  &::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
 }
 
 .align-right {
-    float: right;
+    text-align: right
 }
 
 .printableList {
@@ -26,7 +51,6 @@ $list-gap: 1rem;
 
     th, td {
         border-right: 1px dotted $dark-gray-color;
-        padding: $list-gap;
         white-space: nowrap;
 
         &:first-of-type {
@@ -45,6 +69,11 @@ $list-gap: 1rem;
     }
 
     &--draftList {
+        
+        th, td {
+          padding: 0.8rem 1rem;
+        }
+        
         th.listTitle {
             &--header {
                 border-right: none;
@@ -61,7 +90,7 @@ $list-gap: 1rem;
                 text-align: right;
             }
             &__beer {
-                white-space: normal;
+                white-space: nowrap;
             }
             &__glassIcon {
                 padding: 0 0 0 0.5rem;
@@ -71,17 +100,51 @@ $list-gap: 1rem;
     }
 
     &--draftDetailsList {
+        
+        th {
+           padding: 0 0 0.3rem;
+        }
+        
         td {
-            padding-top: 3rem;
+           padding: 1rem 0 0;
+        }
+        
+        th {
+            // desc column only
+            width: 55%;
+            
+            &.listTitle {
+                width: auto;
+            }
+        }
+        
+        td {
+            padding-top: 2.5rem;
             vertical-align: top;
 
             &.draftDetail__description {
-                padding-top: $list-gap;
+                padding: 0.8rem 0.5rem 0 0;
                 white-space: normal;
             }
         }
+        
     }
 
+}
+
+/**
+ * Draft Details -- for printing
+ */
+
+.draftDetail {
+    
+    // Styles
+    &__description {
+        font-family: $paragraph-font;
+        font-size: 1.2rem;
+        line-height: 1.1;
+        margin: 3px 0 0;
+    }
 }
 
 /**
@@ -107,7 +170,7 @@ td.draftListItem {
             font-family: $san-serif-font;
             font-weight: 700;
             font-size: 1rem;
-            padding-left: 20px;
+            padding-left: 12px;
         }
     }
 

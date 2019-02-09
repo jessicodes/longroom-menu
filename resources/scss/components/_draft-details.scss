@@ -71,11 +71,13 @@
         // brewery
         h3 {
             font-size: 1.3rem;
+            line-height: 1.1;
         }
 
         // name
         h4 {
             font-size: 1.3rem;
+            line-height: 1.1;
         }
     }
 
@@ -91,6 +93,7 @@
         @include primary-font();
         font-size: 1.1rem;
         font-weight: 700;
+        text-align: center
     }
 }
 
