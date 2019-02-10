@@ -14,14 +14,7 @@ $list-gap: 0.8rem;
 
 .shrink {
   display: block;
-  
-  th & {
-    transform: scale(0.7);
-  }
-  
-  td & {
-    transform: scale(0.8);
-  }
+  transform: scale(0.8);
 }
     
 img.print-title {
