@@ -111,7 +111,7 @@
         <th class="listTitle"><span class="shrink">ABV</span></th>
         <th class="listTitle"><span class="shrink">Price</span></th>
       </tr>
-      <tr v-for="(beer, index) in sliceItems(12,18)" class="draftDetail">
+      <tr v-for="(beer, index) in sliceItems(12,19)" class="draftDetail">
         <td class="draftDetail__description">
           <h3>{{ beer.brewery.label }}</h3>
           <h4>{{ beer.name }}</h4>

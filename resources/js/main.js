@@ -55,7 +55,7 @@ const BuildMenu = {
       });
     },
     addBeer(beer) {
-      if (this.activeBeers.length < 18) {
+      if (this.activeBeers.length < 19) {
         this.activeBeers.push(beer);
         this.updateMenu();
       } else {
