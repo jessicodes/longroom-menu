@@ -9,7 +9,7 @@ $list-gap: 0.8rem;
 // Print Rules
 #print {
     width: 100%;
-    padding: 0 80px;
+    padding: 0 150px;
 }
 
 .shrink {
@@ -59,12 +59,20 @@ img.print-title {
     th {
         padding-top: 0;
         vertical-align: bottom;
+        
+        &.listTitle {
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-weight: 700;
+        }
     }
 
     &--draftList {
         
         th, td {
-          padding: 0.8rem 1rem;
+            padding: 0.8rem 1rem;
         }
         
         th.listTitle {
@@ -116,7 +124,7 @@ img.print-title {
             vertical-align: top;
 
             &.draftDetail__description {
-                padding: 0.8rem 0.5rem 0 0;
+                padding: 1.5rem 0.5rem 0 0;
                 white-space: normal;
             }
         }
@@ -137,6 +145,10 @@ img.print-title {
         font-size: 1.2rem;
         line-height: 1.1;
         margin: 3px 0 0;
+        
+        h4 {
+            font-weight: 700;
+        }
     }
 }
 
@@ -156,6 +168,7 @@ td.draftListItem {
 
     &__beer {
         @include primary-font();
+        font-weight: 700;
         font-size: 1.3rem;
         line-height: 1;
 
@@ -166,7 +179,7 @@ td.draftListItem {
             padding-left: 12px;
         }
     }
-
+    
     &__glassIcon {
         font-family: $icon-font;
         font-size: 23px;
