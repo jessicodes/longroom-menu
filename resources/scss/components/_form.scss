@@ -86,3 +86,10 @@
     font-size: 2rem;
     line-height: normal;
 }
+
+.float-button {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}

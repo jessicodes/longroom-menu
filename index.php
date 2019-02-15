@@ -230,7 +230,7 @@
                   <span class="activeBeer__brewery">{{ beer.brewery.label }}</span>
                 </div>
                 <div class="activeBeer__col activeBeer__col--2">
-                  <span class="activeBeer__beer">{{ beer.name }} <span>{{ beer.price|toCurrency }}</span></span>
+                  <span class="activeBeer__beer">{{ beer.name }}<!-- <span>{{ beer.price|toCurrency }}</span> --></span>
                 </div>
                 <div class="activeBeer__col activeBeer__col--3">
                   <span class="activeBeer__glassIcon">{{ beer.glassware.icon }}</span>
@@ -241,11 +241,13 @@
           </div>
         </div>
 
-        <a href="/print.php" class="button">Print Menus</a>
+        <!-- <a href="/print.php" class="button">Print Menus</a> -->
 
       </aside>
     </div>
 
+    <a href="/print.php" class="button float-button">Print Menus</a>
+    
   </main>
 </template>
 <!-- END BUILD YOUR MENU -->

@@ -9,7 +9,7 @@ $list-gap: 0.8rem;
 // Print Rules
 #print {
     width: 100%;
-    padding: 0 150px;
+    padding: 0 90px;
 }
 
 .shrink {
@@ -20,6 +20,11 @@ $list-gap: 0.8rem;
 img.print-title {
   margin: 0 30px 3rem 0;
   width: 70%;
+}
+
+img.print-key {
+  margin-top: 1rem;
+  width: 200px;
 }
 
 .printableH1 {

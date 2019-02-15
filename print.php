@@ -13,7 +13,7 @@
 <div id="print">
 
   <div class="printableH1 align-right">
-    <img src="resources/images/DraftListTitle.jpg" title="DRAFT LIST" alt="DRAFT LIST" class="print-title" />
+    <img src="resources/images/DraftBeerTitle.gif" title="DRAFT LIST" alt="DRAFT LIST" class="print-title" />
   </div>
 
   <section class="printableList printableList--draftList">
@@ -30,12 +30,13 @@
         <td class="draftListItem__glassIcon">{{ beer.glassware.icon }}</td>
       </tr>
     </table>
+    <img src="resources/images/Key.png" class="print-key" />
   </section>
 
   <div class="page-break"></div>
 
   <div class="printableH1 align-left">
-    <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title" />
+    <img src="resources/images/DraftBeerTitle.gif" title="DRAFT BEER" alt="DRAFT BEER" class="print-title" />
   </div>
   
   <section class="printableList printableList--draftDetailsList">
@@ -68,7 +69,7 @@
   <section class="printableList printableList--draftDetailsList">
   
     <div class="printableH1 align-right">
-      <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title" />
+      <img src="resources/images/DraftBeerTitle.gif" title="DRAFT BEER" alt="DRAFT BEER" class="print-title" />
     </div>
   
     <table>
@@ -98,7 +99,7 @@
   <div class="page-break"></div>
 
   <div class="printableH1 align-left">
-    <img src="resources/images/DraftBeerTitle.jpg" title="DRAFT BEER" alt="DRAFT BEER" class="print-title" />
+    <img src="resources/images/DraftBeerTitle.gif" title="DRAFT BEER" alt="DRAFT BEER" class="print-title" />
   </div>
 
   <section class="printableList printableList--draftDetailsList">
